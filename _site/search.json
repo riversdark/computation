@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "binding_ddg.html",
+    "href": "binding_ddg.html",
+    "title": "Predicting ddG",
+    "section": "",
+    "text": "# suppress warnings\nimport warnings\nwarnings.filterwarnings('ignore')\n\n\n\nMUT_PROTEIN = \"data/example_mut.pdb\"\nWT_PROTEIN = \"data/example_wt.pdb\"\n\n\n# show the protein chains and number of amino acids\ndef show_protein(protein):\n    from Bio.PDB import PDBParser\n\n    parser = PDBParser()\n    structure = parser.get_structure(\"protein\", protein)\n    for model in structure:\n        for chain in model:\n            print(chain.id, len(chain))\n\nshow_protein(MUT_PROTEIN)\nshow_protein(WT_PROTEIN)\n\nA 214\nB 214\nC 200\nA 214\nB 214\nC 200\n\n\n\n\n# Get Amino Acid sequence from PDB file\ndef get_sequence(pdb_file, chain=\"A\"):\n    from Bio.PDB import PDBParser, PPBuilder\n\n    parser = PDBParser()\n    structure = parser.get_structure(\"protein\", pdb_file)\n    ppb = PPBuilder()\n    for pp in ppb.build_peptides(structure[0][chain]):\n        return pp.get_sequence()\n\n# Get sequence of mutated protein\nmut_seq = get_sequence(MUT_PROTEIN)\n# Get sequence of wild type protein\nwt_seq = get_sequence(WT_PROTEIN)\n\n# Show sequences\nprint(\"Mutated protein sequence: \", mut_seq)\nprint(\"Wild type protein sequence: \", wt_seq)\n\nMutated protein sequence:  DIKMTQSPSSMYASLGERVTITCKASQDIRKYLNWYQQKPWKSPKTLIYYATSLADGVPSRFSGSGSGQDYSLTISSLESDDTATYYCLQHGESPYTFGGGTKLEINRADAAPTVSIFPPSSEQLTSGGASVVCFLNNFYPKDINVKWKIDGSERQNGVLNSWTDQDSKDSTYSMSSTLTLTKDEYERHNSYTCEATHKTSTSPIVKSFNRNEC\nWild type protein sequence:  DIKMTQSPSSMYASLGERVTITCKASQDIRKYLNWYQQKPWKSPKTLIYYATSLADGVPSRFSGSGSGQDYSLTISSLESDDTATYYCLQHGESPYTFGGGTKLEINRADAAPTVSIFPPSSEQLTSGGASVVCFLNNFYPKDINVKWKIDGSERQNGVLNSWTDQDSKDSTYSMSSTLTLTKDEYERHNSYTCEATHKTSTSPIVKSFNRNEC\n\n\n\n# Show difference between sequences\ndef show_aa_diff(seq1, seq2):\n    for i in range(len(seq1)):\n        if seq1[i] != seq2[i]:\n            print(f\"Position {i+1}: {seq1[i]} -> {seq2[i]}\")\n\n\nseq1 = \"ABCD\"\nseq2 = \"ABEF\"\nshow_aa_diff(seq1, seq2)\n\nPosition 3: C -> E\nPosition 4: D -> F\n\n\n\n\n# loop through the peptide chains to find the mutations\nfor chain in \"ABC\":\n    print(f\"Chain {chain}:\")\n    show_aa_diff(get_sequence(MUT_PROTEIN, chain), get_sequence(WT_PROTEIN, chain))\n\nChain A:\nChain B:\nChain C:\n\n\n\n# compute the ddG\n!python scripts/predict.py $WT_PROTEIN $MUT_PROTEIN\n\nPredicted ddG: -0.30"
   }
 ]
