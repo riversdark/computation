@@ -1,0 +1,7 @@
+chroma
+
+<https://www.biorxiv.org/content/10.1101/2022.12.01.518682v1>
+
+<https://generatebiomedicines.com/chroma>
+
+<https://github.com/lucidrains/chroma-pytorch>
