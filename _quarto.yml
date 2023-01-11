@@ -1,8 +1,15 @@
 project:
   type: website
+  render:
+    - gatk.ipynb
+    - pyro_cov.ipynb
+    - AlphaFold.ipynb
+    - binding_ddg.ipynb
+    - chroma.qmd
+    - RFdiffusion.ipynb
 
 website:
-  title: "computation"
+  title: "Scientific Computation at large"
   navbar:
     left:
       - href: index.qmd
