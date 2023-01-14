@@ -3,12 +3,14 @@ project:
   render:
     - about.qmd
     - index.qmd
-    - gatk.ipynb
-    - pyro_cov.ipynb
-    - AlphaFold.ipynb
-    - binding_ddg.ipynb
-    - chroma.qmd
-    - RFdiffusion.ipynb
+    - 00_openai.ipynb
+    - 01_pyro_cov.ipynb
+    - 01_wgs.qmd
+    - 02_AFdesign.ipynb
+    - 02_AlphaFold.ipynb
+    - 02_binding_ddg.ipynb
+    - 02_chroma.qmd
+    - 02_RFdiffusion.ipynb
 
 website:
   title: "Scientific Computation at large"

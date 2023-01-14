@@ -95,9 +95,7 @@ We will use FastQC to generate a report for each sample.
 !fastqc $READS_FILE1 $READS_FILE2 -o $READS_DIR
 ```
 
-## Alignment
-
-align reads to reference genome
+## Align reads to reference genome
 
 the aligner `bwa aln` can trim the reads to remove low quality bases at the end of the reads. This is done using the `-q` option. The default value is 15. 
 
@@ -195,23 +193,24 @@ Mark duplicates in the BAM file. This is done to remove PCR duplicates. PCR dupl
 
 ## Index BAM
 
+Index the BAM file. This is done to make the file compatible with `HaplotypeCallerSpark`.
+
 ```{python}
 !samtools index $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam
 ```
 
 ## Base quality score recalibration
 
+Base quality score recalibration (BQSR) is a process that recalibrates the base quality scores of the reads. BQSR is done to correct for systematic errors in the base quality scores. BQSR is done using the `BaseRecalibrator` and `ApplyBQSR` tools. The `BaseRecalibrator` tool generates a recalibration table. The `ApplyBQSR` tool applies the recalibration table to the BAM file.
+
 ```{python}
 !gatk BaseRecalibrator -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam -R $REF_FILE -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal_data.table --known-sites $KNOWN_SITES
-```
-
-## Apply BQSR
-
-```{python}
 !gatk ApplyBQSR -R $REF_FILE -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam --bqsr-recal-file $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal_data.table -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.bam
 ```
 
 ## Haplotype caller
+
+The HaplotypeCaller tool is used to call variants. The HaplotypeCaller tool is a Spark version of the HaplotypeCaller tool. It is faster than the HaplotypeCaller tool and can be run on a cluster.
 
 ```{python}
 !gatk HaplotypeCaller -R $REF_FILE -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.vcf
