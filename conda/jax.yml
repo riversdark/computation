@@ -1,0 +1,34 @@
+name: jax
+channels:
+  - conda-forge
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.8
+  - ipython
+  - conda
+  - cuda-nvcc
+  - jax
+  - autopep8
+  - arviz
+  - easydict
+  - ipywidgets
+  - matplotlib
+  - notebook
+  - numpy
+  - pandas
+  - plotly
+  - biopython
+  - ffmpeg
+  - py3dmol
+  - scikit-learn
+  - scipy
+  - seaborn
+  - pip
+  - pip:
+    - rdatasets
+    - umap-learn
+    - dm-haiku
+    - scanpy
+    - scvi-tools[tutorials]
+    - pyro-ppl[extras]

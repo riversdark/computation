@@ -1,0 +1,31 @@
+name: wgs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - autopep8
+  - ipython
+  - ipywidgets
+  - notebook
+  - conda
+  - numpy
+  - scipy
+  - scikit-learn
+  - pandas
+  - matplotlib
+  - seaborn
+  - plotly
+  - openjdk=8
+  - pyspark
+  - biopandas
+  - biopython
+  - rdkit
+  - bioconda::gatk4
+  - bioconda::bwa
+  - bioconda::fastqc
+  - bioconda::samtools
+  - bioconda::multiqc
+  - pip
+  - pip:
+    - openai

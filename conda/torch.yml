@@ -1,0 +1,55 @@
+name: torch
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.8
+  - ipython
+  - conda
+  - pytorch 
+  - torchaudio 
+  - torchvision 
+  - pytorch-cuda=11.6
+  - pyspark
+  - ambertools
+  - autopep8
+  - arviz
+  - biopandas
+  - biopython
+  - bioconda::gatk4
+  - bioconda::bwa
+  - bioconda::fastqc
+  - bioconda::samtools
+  - bioconda::multiqc
+  - easydict
+  - fair-esm # facebook evolutionary scale language models
+  - ipywidgets
+  - matplotlib
+  - mdanalysis
+  - nglview
+  - notebook
+  - numpy
+  - openbabel
+  - openff-toolkit
+  - openmm=7.6
+  - pandas
+  - parmed
+  - pdbfixer
+  - plotly
+  - pre-commit
+  - prolif
+  - py3dmol
+  - rdkit
+  - scikit-learn
+  - scipy
+  - seaborn
+  - pip
+  - pip:
+    - rdatasets
+    - umap-learn
+    - openai
+    - scanpy
+    - scvi-tools[tutorials]
+    - pyro-ppl[extras]
