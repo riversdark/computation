@@ -1,6 +1,8 @@
 project:
   type: website
   render:
+    - about.qmd
+    - index.qmd
     - gatk.ipynb
     - pyro_cov.ipynb
     - AlphaFold.ipynb
