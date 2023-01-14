@@ -11,6 +11,7 @@ project:
     - 02_binding_ddg.ipynb
     - 02_chroma.qmd
     - 02_RFdiffusion.ipynb
+    - 03_difflinker.ipynb
 
 website:
   title: "Scientific Computation at large"
