@@ -3,47 +3,32 @@ title: "Assorted essays"
 format:
   html:
     code-fold: true
-jupyter: python3
 ---
 
-This website is a collection of tools that I'm using for my work. Expected to be updated frequently.
+This website is a collection of tools that I'm using for work. Expected to be updated frequently.
 
-# Omics Data Analysis
+Click on the links on the left to navigate to the different sections.
 
-genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc.
+# 01 Omics Data Analysis
 
-[Getting Started](01_0.qmd)
+Genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc., uncovering the molecular mechanisms by studying their sequence information.
 
-# Computational protein design
+# 02 Computational protein design
 
 Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc.
 
-[Getting Started](02_0.qmd)
-
-
-# Computational micromolecule design
+# 03 Computational micromolecule design
 
 Designing small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.
 
-Inhibitors are small molecules that bind to a protein target and prevent it from functioning. They are used to treat a variety of diseases, including cancer, diabetes, and cardiovascular disease. Inhibitors are typically designed to bind to a specific protein target, such as an enzyme, and prevent it from functioning. They are often used to treat diseases that are caused by an overactive protein, such as cancer, diabetes, and cardiovascular disease.
+# 04 Molecular dynamics
 
-Activators are small molecules that bind to a protein target and increase its activity. 
-Allosteric modulators are small molecules that bind to a protein target and change its activity. 
+Computer simulations to understand the molecular mechanisms of biological systems.
 
-[Getting Started](03_0.qmd)
-
-
-
-# Molecular dynamics
-
-[Getting Started](04_0.qmd)
-
-# Machine learning
+# 05 Machine learning
 
 In depth analysis of key machine learning models and their applications.
 
-[Getting Started](05_0.qmd)
+# 05 New technologies
 
-# New technologies
-
-[Getting Started](06_0.qmd)
+New technologies under investigation.
