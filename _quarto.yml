@@ -43,20 +43,12 @@ website:
       - section: "Omics Analysis"
         contents:
           - 01_0.qmd
-          - 01_pyro_cov.ipynb
-          - 01_wgs.ipynb
       - section: "Protein Design"
         contents:
           - 02_0.qmd
-          - 02_AFdesign.ipynb
-          - 02_AlphaFold.ipynb
-          - 02_binding_ddg.ipynb
-          - 02_chroma.qmd
-          - 02_RFdiffusion.ipynb
       - section: "Micromoecule Design"
         contents:
           - 03_0.qmd
-          - 03_difflinker.ipynb
       - section: "Molecular Dynamics"
         contents:
           - 04_0.qmd
