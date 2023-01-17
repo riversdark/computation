@@ -1,27 +1,9 @@
 ---
-title: "Assorted essays"
+title: "Computational micromolecule design"
 format:
   html:
     code-fold: true
-jupyter: python3
 ---
-
-This website is a collection of tools that I'm using for my work. Expected to be updated frequently.
-
-# Omics Data Analysis
-
-genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc.
-
-[Getting Started](01_0.qmd)
-
-# Computational protein design
-
-Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc.
-
-[Getting Started](02_0.qmd)
-
-
-# Computational micromolecule design
 
 Designing small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.
 
@@ -30,20 +12,3 @@ Inhibitors are small molecules that bind to a protein target and prevent it from
 Activators are small molecules that bind to a protein target and increase its activity. 
 Allosteric modulators are small molecules that bind to a protein target and change its activity. 
 
-[Getting Started](03_0.qmd)
-
-
-
-# Molecular dynamics
-
-[Getting Started](04_0.qmd)
-
-# Machine learning
-
-In depth analysis of key machine learning models and their applications.
-
-[Getting Started](05_0.qmd)
-
-# New technologies
-
-[Getting Started](06_0.qmd)

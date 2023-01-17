@@ -1,0 +1,11 @@
+{
+  "hash": "edd063fa0bf39e87b50bbd14fc3aa4ea",
+  "result": {
+    "markdown": "---\ntitle: Assorted essays\nformat:\n  html:\n    code-fold: true\n---\n\nThis website is a collection of tools that I'm using for my work. Expected to be updated frequently.\n\n# Omics Data Analysis\n\ngenomics, transcriptomics, proteomics, metabolomics, lipidomics, etc.\n\n[Getting Started](01_0.qmd)\n\n# Computational protein design\n\nDesigning functional proteins, peptides, enzymes, antibodies, nanobodies, etc.\n\n[Getting Started](02_0.qmd)\n\n\n# Computational micromolecule design\n\nDesigning small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.\n\nInhibitors are small molecules that bind to a protein target and prevent it from functioning. They are used to treat a variety of diseases, including cancer, diabetes, and cardiovascular disease. Inhibitors are typically designed to bind to a specific protein target, such as an enzyme, and prevent it from functioning. They are often used to treat diseases that are caused by an overactive protein, such as cancer, diabetes, and cardiovascular disease.\n\nActivators are small molecules that bind to a protein target and increase its activity. \nAllosteric modulators are small molecules that bind to a protein target and change its activity. \n\n[Getting Started](03_0.qmd)\n\n\n\n# Molecular dynamics\n\n[Getting Started](04_0.qmd)\n\n# Machine learning\n\nIn depth analysis of key machine learning models and their applications.\n\n[Getting Started](05_0.qmd)\n\n# New technologies\n\n[Getting Started](06_0.qmd)\n\n",
+    "supporting": [
+      "index_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

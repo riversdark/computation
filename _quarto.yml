@@ -3,15 +3,30 @@ project:
   render:
     - about.qmd
     - index.qmd
+    - 01_0.qmd
+    - 02_0.qmd
+    - 03_0.qmd
+    - 04_0.qmd
+    - 05_0.qmd
+    - 06_0.qmd
     - 00_openai.ipynb
     - 01_pyro_cov.ipynb
-    - 01_wgs.qmd
+    - 01_wgs.ipynb
     - 02_AFdesign.ipynb
     - 02_AlphaFold.ipynb
     - 02_binding_ddg.ipynb
     - 02_chroma.qmd
     - 02_RFdiffusion.ipynb
     - 03_difflinker.ipynb
+
+execute:
+  freeze: auto
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
 
 website:
   title: "Scientific Computation at large"
@@ -20,12 +35,37 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Omics Analysis"
+        contents:
+          - 01_0.qmd
+          - 01_pyro_cov.ipynb
+          - 01_wgs.ipynb
+      - section: "Protein Design"
+        contents:
+          - 02_0.qmd
+          - 02_AFdesign.ipynb
+          - 02_AlphaFold.ipynb
+          - 02_binding_ddg.ipynb
+          - 02_chroma.qmd
+          - 02_RFdiffusion.ipynb
+      - section: "Micromoecule Design"
+        contents:
+          - 03_0.qmd
+          - 03_difflinker.ipynb
+      - section: "Molecular Dynamics"
+        contents:
+          - 04_0.qmd
+      - section: "Machine Learning"
+        contents:
+          - 05_0.qmd
+      - section: "New Technologies"
+        contents:
+          - 06_0.qmd
 
 
 

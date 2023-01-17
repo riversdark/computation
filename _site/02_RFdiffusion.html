@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computation at large - Assorted essays</title>
+<title>Scientific Computation at large – rfdiffusion</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">About</a>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Assorted essays</h1>
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -137,12 +137,12 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Protein Design</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Protein Design</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_0.html" class="sidebar-item-text sidebar-link">Computational protein design</a>
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_RFdiffusion.html" class="sidebar-item-text sidebar-link">Protein monomer design</a>
+  <a href="./02_RFdiffusion.html" class="sidebar-item-text sidebar-link active">Protein monomer design</a>
   </div>
 </li>
       </ul>
@@ -249,64 +249,37 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#omics-data-analysis" id="toc-omics-data-analysis" class="nav-link active" data-scroll-target="#omics-data-analysis">Omics Data Analysis</a></li>
-  <li><a href="#computational-protein-design" id="toc-computational-protein-design" class="nav-link" data-scroll-target="#computational-protein-design">Computational protein design</a></li>
-  <li><a href="#computational-micromolecule-design" id="toc-computational-micromolecule-design" class="nav-link" data-scroll-target="#computational-micromolecule-design">Computational micromolecule design</a></li>
-  <li><a href="#molecular-dynamics" id="toc-molecular-dynamics" class="nav-link" data-scroll-target="#molecular-dynamics">Molecular dynamics</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine learning</a></li>
-  <li><a href="#new-technologies" id="toc-new-technologies" class="nav-link" data-scroll-target="#new-technologies">New technologies</a></li>
+  <li><a href="#protein-monomer-design" id="toc-protein-monomer-design" class="nav-link active" data-scroll-target="#protein-monomer-design">Protein monomer design</a></li>
+  <li><a href="#protein-binder-design" id="toc-protein-binder-design" class="nav-link" data-scroll-target="#protein-binder-design">Protein binder design</a></li>
+  <li><a href="#symmetric-oligomer-design" id="toc-symmetric-oligomer-design" class="nav-link" data-scroll-target="#symmetric-oligomer-design">Symmetric oligomer design</a></li>
+  <li><a href="#enzyme-active-site-scaffolding" id="toc-enzyme-active-site-scaffolding" class="nav-link" data-scroll-target="#enzyme-active-site-scaffolding">Enzyme active site scaffolding</a></li>
+  <li><a href="#symmetric-motif-scaffolding-e.g.-helix-beta-sheet-design" id="toc-symmetric-motif-scaffolding-e.g.-helix-beta-sheet-design" class="nav-link" data-scroll-target="#symmetric-motif-scaffolding-e.g.-helix-beta-sheet-design">Symmetric motif scaffolding (e.g.&nbsp;helix, beta sheet) design</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Assorted essays</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
-
-<p>This website is a collection of tools that I’m using for my work. Expected to be updated frequently.</p>
-<section id="omics-data-analysis" class="level1">
-<h1>Omics Data Analysis</h1>
-<p>genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc.</p>
-<p><a href="./01_0.html">Getting Started</a></p>
+<p>code not yet available</p>
+<section id="protein-monomer-design" class="level1">
+<h1>Protein monomer design</h1>
 </section>
-<section id="computational-protein-design" class="level1">
-<h1>Computational protein design</h1>
-<p>Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc.</p>
-<p><a href="./02_0.html">Getting Started</a></p>
+<section id="protein-binder-design" class="level1">
+<h1>Protein binder design</h1>
 </section>
-<section id="computational-micromolecule-design" class="level1">
-<h1>Computational micromolecule design</h1>
-<p>Designing small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.</p>
-<p>Inhibitors are small molecules that bind to a protein target and prevent it from functioning. They are used to treat a variety of diseases, including cancer, diabetes, and cardiovascular disease. Inhibitors are typically designed to bind to a specific protein target, such as an enzyme, and prevent it from functioning. They are often used to treat diseases that are caused by an overactive protein, such as cancer, diabetes, and cardiovascular disease.</p>
-<p>Activators are small molecules that bind to a protein target and increase its activity. Allosteric modulators are small molecules that bind to a protein target and change its activity.</p>
-<p><a href="./03_0.html">Getting Started</a></p>
+<section id="symmetric-oligomer-design" class="level1">
+<h1>Symmetric oligomer design</h1>
+<p>symmetric oligomers can be used to</p>
 </section>
-<section id="molecular-dynamics" class="level1">
-<h1>Molecular dynamics</h1>
-<p><a href="./04_0.html">Getting Started</a></p>
+<section id="enzyme-active-site-scaffolding" class="level1">
+<h1>Enzyme active site scaffolding</h1>
+<p>enzyme active sites are</p>
 </section>
-<section id="machine-learning" class="level1">
-<h1>Machine learning</h1>
-<p>In depth analysis of key machine learning models and their applications.</p>
-<p><a href="./05_0.html">Getting Started</a></p>
-</section>
-<section id="new-technologies" class="level1">
-<h1>New technologies</h1>
-<p><a href="./06_0.html">Getting Started</a></p>
+<section id="symmetric-motif-scaffolding-e.g.-helix-beta-sheet-design" class="level1">
+<h1>Symmetric motif scaffolding (e.g.&nbsp;helix, beta sheet) design</h1>
+<p>Symmetric motif scaffolds are designed by specifying the sequence of the motif and the number of repeats. The motif is then repeated in the sequence of the scaffold. The motif is specified by a list of amino acids, where each amino acid is specified by a one-letter code. The number of repeats is specified by an integer.</p>
 
 
 </section>

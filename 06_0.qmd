@@ -1,0 +1,8 @@
+---
+title: "New technologies"
+format:
+  html:
+    code-fold: true
+---
+
+氘代技术

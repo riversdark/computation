@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computation at large - Assorted essays</title>
+<title>Scientific Computation at large – alphafold</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -80,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">About</a>
@@ -92,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Assorted essays</h1>
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -137,12 +200,12 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Protein Design</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Protein Design</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_0.html" class="sidebar-item-text sidebar-link">Computational protein design</a>
@@ -155,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_AlphaFold.html" class="sidebar-item-text sidebar-link">Download the code</a>
+  <a href="./02_AlphaFold.html" class="sidebar-item-text sidebar-link active">Download the code</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -249,64 +312,96 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#omics-data-analysis" id="toc-omics-data-analysis" class="nav-link active" data-scroll-target="#omics-data-analysis">Omics Data Analysis</a></li>
-  <li><a href="#computational-protein-design" id="toc-computational-protein-design" class="nav-link" data-scroll-target="#computational-protein-design">Computational protein design</a></li>
-  <li><a href="#computational-micromolecule-design" id="toc-computational-micromolecule-design" class="nav-link" data-scroll-target="#computational-micromolecule-design">Computational micromolecule design</a></li>
-  <li><a href="#molecular-dynamics" id="toc-molecular-dynamics" class="nav-link" data-scroll-target="#molecular-dynamics">Molecular dynamics</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine learning</a></li>
-  <li><a href="#new-technologies" id="toc-new-technologies" class="nav-link" data-scroll-target="#new-technologies">New technologies</a></li>
+  <li><a href="#download-the-code" id="toc-download-the-code" class="nav-link active" data-scroll-target="#download-the-code">Download the code</a></li>
+  <li><a href="#download-the-data" id="toc-download-the-data" class="nav-link" data-scroll-target="#download-the-data">Download the data</a></li>
+  <li><a href="#download-the-model-parameters" id="toc-download-the-model-parameters" class="nav-link" data-scroll-target="#download-the-model-parameters">Download the model parameters</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Assorted essays</h1>
+
+
+<section id="download-the-code" class="level1">
+<h1>Download the code</h1>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>REPO_ADDRESS <span class="op">=</span> <span class="st">"https://github.com/deepmind/alphafold.git"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>REPO_NAME <span class="op">=</span> <span class="st">"alphafold"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(REPO_NAME):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>git clone {REPO_ADDRESS}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd {REPO_NAME}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print working directory</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cloning into 'alphafold'...
+remote: Enumerating objects: 682, done.
+remote: Counting objects: 100% (48/48), done.
+remote: Compressing objects: 100% (40/40), done.
+remote: Total 682 (delta 7), reused 27 (delta 5), pack-reused 634
+Receiving objects: 100% (682/682), 16.04 MiB | 10.73 MiB/s, done.
+Resolving deltas: 100% (381/381), done.
+/home/ma/git/computation/alphafold
+/home/ma/git/computation/alphafold</code></pre>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
-
-<p>This website is a collection of tools that I’m using for my work. Expected to be updated frequently.</p>
-<section id="omics-data-analysis" class="level1">
-<h1>Omics Data Analysis</h1>
-<p>genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc.</p>
-<p><a href="./01_0.html">Getting Started</a></p>
+</div>
 </section>
-<section id="computational-protein-design" class="level1">
-<h1>Computational protein design</h1>
-<p>Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc.</p>
-<p><a href="./02_0.html">Getting Started</a></p>
+<section id="download-the-data" class="level1">
+<h1>Download the data</h1>
+<p>use the download script provided by DeepMind</p>
 </section>
-<section id="computational-micromolecule-design" class="level1">
-<h1>Computational micromolecule design</h1>
-<p>Designing small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.</p>
-<p>Inhibitors are small molecules that bind to a protein target and prevent it from functioning. They are used to treat a variety of diseases, including cancer, diabetes, and cardiovascular disease. Inhibitors are typically designed to bind to a specific protein target, such as an enzyme, and prevent it from functioning. They are often used to treat diseases that are caused by an overactive protein, such as cancer, diabetes, and cardiovascular disease.</p>
-<p>Activators are small molecules that bind to a protein target and increase its activity. Allosteric modulators are small molecules that bind to a protein target and change its activity.</p>
-<p><a href="./03_0.html">Getting Started</a></p>
-</section>
-<section id="molecular-dynamics" class="level1">
-<h1>Molecular dynamics</h1>
-<p><a href="./04_0.html">Getting Started</a></p>
-</section>
-<section id="machine-learning" class="level1">
-<h1>Machine learning</h1>
-<p>In depth analysis of key machine learning models and their applications.</p>
-<p><a href="./05_0.html">Getting Started</a></p>
-</section>
-<section id="new-technologies" class="level1">
-<h1>New technologies</h1>
-<p><a href="./06_0.html">Getting Started</a></p>
+<section id="download-the-model-parameters" class="level1">
+<h1>Download the model parameters</h1>
+<p>Deepmind updates the model parameters every 6 months. The latest model parameters are available at the following link:</p>
+<p>https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PARAMS_ADDRESS <span class="op">=</span> <span class="st">"https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PARAMS_NAME <span class="op">=</span> <span class="st">"alphafold_params_2022-12-06.tar"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>PARAMS_DIR <span class="op">=</span> <span class="st">"/mnt/nas/alphafold/alphafold_params_2022-12-06"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download params if not already downloaded, create directory if not already created, including parent directories</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(PARAMS_DIR):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>mkdir <span class="op">-</span>p {PARAMS_DIR}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>wget {PARAMS_ADDRESS} <span class="op">-</span>P {PARAMS_DIR}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>tar <span class="op">-</span>xvf {PARAMS_DIR}<span class="op">/</span>{PARAMS_NAME} <span class="op">-</span>C {PARAMS_DIR}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--2023-01-11 13:53:06--  https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar
+Resolving storage.googleapis.com (storage.googleapis.com)... 172.217.160.112, 142.251.43.16, 172.217.163.48, ...
+Connecting to storage.googleapis.com (storage.googleapis.com)|172.217.160.112|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5587968000 (5.2G) [application/x-tar]
+Saving to: ‘/mnt/nas/alphafold/alphafold_params_2022-12-06/alphafold_params_2022-12-06.tar’
+
+alphafold_params_20 100%[===================&gt;]   5.20G  51.9MB/s    in 1m 55s  
+
+2023-01-11 13:55:03 (46.2 MB/s) - ‘/mnt/nas/alphafold/alphafold_params_2022-12-06/alphafold_params_2022-12-06.tar’ saved [5587968000/5587968000]
+
+params_model_1.npz
+params_model_2.npz
+params_model_3.npz
+params_model_4.npz
+params_model_5.npz
+params_model_1_ptm.npz
+params_model_2_ptm.npz
+params_model_3_ptm.npz
+params_model_4_ptm.npz
+params_model_5_ptm.npz
+params_model_1_multimer_v3.npz
+params_model_2_multimer_v3.npz
+params_model_3_multimer_v3.npz
+params_model_4_multimer_v3.npz
+params_model_5_multimer_v3.npz
+LICENSE</code></pre>
+</div>
+</div>
 
 
 </section>
