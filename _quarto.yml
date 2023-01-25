@@ -43,6 +43,7 @@ website:
       - section: "Omics Analysis"
         contents:
           - 01_0.qmd
+          - 01_pyro_cov.ipynb
       - section: "Protein Design"
         contents:
           - 02_0.qmd
