@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computation at large – wgs</title>
+<title>Scientific Computation at large - WGS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <h1 class="quarto-secondary-nav-title">WGS</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -175,12 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Omics Analysis</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Omics Analysis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_0.html" class="sidebar-item-text sidebar-link">Omics Data Analysis</a>
@@ -189,6 +189,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_pyro_cov.html" class="sidebar-item-text sidebar-link">pyro_cov</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_varscan.html" class="sidebar-item-text sidebar-link">VarScan</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_wgs.html" class="sidebar-item-text sidebar-link active">WGS</a>
   </div>
 </li>
       </ul>
@@ -277,9 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#wgs-variant-calling-using-gatk" id="toc-wgs-variant-calling-using-gatk" class="nav-link active" data-scroll-target="#wgs-variant-calling-using-gatk">WGS variant calling using GATK</a>
-  <ul class="collapse">
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link active" data-scroll-target="#tools">Tools</a></li>
   <li><a href="#reference-genome" id="toc-reference-genome" class="nav-link" data-scroll-target="#reference-genome">Reference genome</a></li>
   <li><a href="#reads" id="toc-reads" class="nav-link" data-scroll-target="#reads">Reads</a></li>
   <li><a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality control</a></li>
@@ -297,18 +305,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#variant-annotation" id="toc-variant-annotation" class="nav-link" data-scroll-target="#variant-annotation">Variant annotation</a></li>
   <li><a href="#variant-recalibration" id="toc-variant-recalibration" class="nav-link" data-scroll-target="#variant-recalibration">Variant recalibration</a></li>
   <li><a href="#apply-variant-recalibration" id="toc-apply-variant-recalibration" class="nav-link" data-scroll-target="#apply-variant-recalibration">Apply variant recalibration</a></li>
-  <li><a href="#the-bash-script" id="toc-the-bash-script" class="nav-link" data-scroll-target="#the-bash-script">The bash script</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">WGS</h1>
+<p class="subtitle lead">WGS variant calling using GATK</p>
+</div>
 
 
-<section id="wgs-variant-calling-using-gatk" class="level1">
-<h1>WGS variant calling using GATK</h1>
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
 <ul class="task-list">
 <li><input type="checkbox" disabled="">clarify the choice of reference genome</li>
 <li><input type="checkbox" disabled="">clarify the choice of known sites</li>
@@ -513,61 +532,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>gatk ApplyVQSR <span class="op">-</span>R $REF_FILE <span class="op">-</span>V $READS_DIR<span class="op">/</span>RDD2206P0001<span class="op">-</span>WGS<span class="op">-</span><span class="fl">1.</span><span class="er">sorted</span>.dedup.recal.filtered.annotated.vcf <span class="op">-</span>O $READS_DIR<span class="op">/</span>RDD2206P0001<span class="op">-</span>WGS<span class="op">-</span><span class="fl">1.</span><span class="er">sorted</span>.dedup.recal.filtered.annotated.recal.vcf <span class="op">--</span>ts<span class="op">-</span><span class="bu">filter</span><span class="op">-</span>level <span class="fl">99.0</span> <span class="op">--</span>tranches<span class="op">-</span><span class="bu">file</span> $READS_DIR<span class="op">/</span>RDD2206P0001<span class="op">-</span>WGS<span class="op">-</span><span class="fl">1.</span><span class="er">sorted</span>.dedup.recal.filtered.annotated.recal.tranches <span class="op">--</span>recal<span class="op">-</span><span class="bu">file</span> $READS_DIR<span class="op">/</span>RDD2206P0001<span class="op">-</span>WGS<span class="op">-</span><span class="fl">1.</span><span class="er">sorted</span>.dedup.recal.filtered.annotated.recal.vcf <span class="op">--</span>mode SNP</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="the-bash-script" class="level2">
-<h2 class="anchored" data-anchor-id="the-bash-script">The bash script</h2>
-<pre class="{bash}"><code>REF_DIR="/mnt/nas/wgs/hg38"
-REF_URL="https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz"
-REF_FILE="/mnt/nas/wgs/hg38/hg38.fa"
-KNOWN_SITES_FILE="/mnt/nas/wgs/hg38/Homo_sapiens_assembly38.dbsnp138.vcf"
-KNOWN_SITES_IDX_FILE="/mnt/nas/wgs/hg38/Homo_sapiens_assembly38.dbsnp138.vcf.idx"
-READS_DIR="/mnt/nas/wgs/RDD2206P0001"
-READS_FILE1="/mnt/nas/wgs/RDD2206P0001/RDD2206P0001-WGS-1_R1.fastq.gz"
-READS_FILE2="/mnt/nas/wgs/RDD2206P0001/RDD2206P0001-WGS-1_R2.fastq.gz"
-
-# Run FastQC on the reads
-fastqc $READS_FILE1 $READS_FILE2 -o $READS_DIR
-
-# Align the reads to the reference genome
-bwa mem -t 50 -M -R "@RG\tID:RDD2206P0001\tSM:RDD2206P0001" $REF_FILE $READS_FILE1 $READS_FILE2 &gt; $READS_DIR/RDD2206P0001-WGS-1.sam
-
-# Convert the SAM file to BAM and sort it
-samtools view -bS $READS_DIR/RDD2206P0001-WGS-1.sam &gt; $READS_DIR/RDD2206P0001-WGS-1.bam
-samtools sort -@ 50 $READS_DIR/RDD2206P0001-WGS-1.bam -o $READS_DIR/RDD2206P0001-WGS-1.sorted.bam
-
-# Mark duplicates
-gatk MarkDuplicatesSpark -I $READS_DIR/RDD2206P0001-WGS-1.sorted.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam --METRICS_FILE $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.metrics
-
-# Show the flag statistics
-samtools flagstat $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam &gt; $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.flagstat
-
-# Index the BAM file
-samtools index $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam
-
-# Create a BAI file
-samtools index $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam
-
-# Base quality score recalibration
-gatk BaseRecalibratorSpark -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.grp -R $REF_FILE --known-sites $KNOWN_SITES_FILE
-
-# Apply base quality score recalibration
-gatk ApplyBQSRSpark -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.bam --bqsr-recal-file $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.grp -R $REF_FILE
-
-# Collect alignment and insert size metrics
-gatk CollectAlignmentSummaryMetrics -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.alignment_metrics -R $REF_FILE
-gatk CollectInsertSizeMetrics -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.insert_size_metrics -H $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.insert_size_histogram.pdf -M 0.5
-
-# Call variants
-gatk HaplotypeCallerSpark -I $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.bam -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.vcf -R $REF_FILE --emit-ref-confidence GVCF --variant-index-type LINEAR --variant-index-parameter 128000
-
-# extract the SNP variants
-gatk SelectVariants -V $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.vcf -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.snp.vcf --select-type-to-include SNP
-
-# extract the INDEL variants
-gatk SelectVariants -V $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.vcf -O $READS_DIR/RDD2206P0001-WGS-1.sorted.dedup.recal.indel.vcf --select-type-to-include INDEL</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

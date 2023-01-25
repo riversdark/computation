@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computation at large - Omics Data Analysis</title>
+<title>Scientific Computation at large - VarScan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Omics Data Analysis</h1>
+      <h1 class="quarto-secondary-nav-title">VarScan</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -120,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_0.html" class="sidebar-item-text sidebar-link active">Omics Data Analysis</a>
+  <a href="./01_0.html" class="sidebar-item-text sidebar-link">Omics Data Analysis</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_varscan.html" class="sidebar-item-text sidebar-link">VarScan</a>
+  <a href="./01_varscan.html" class="sidebar-item-text sidebar-link active">VarScan</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,24 +220,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#genomics" id="toc-genomics" class="nav-link active" data-scroll-target="#genomics">Genomics</a></li>
-  <li><a href="#transcriptomics" id="toc-transcriptomics" class="nav-link" data-scroll-target="#transcriptomics">Transcriptomics</a></li>
-  <li><a href="#proteomics" id="toc-proteomics" class="nav-link" data-scroll-target="#proteomics">Proteomics</a></li>
-  <li><a href="#metagenomics" id="toc-metagenomics" class="nav-link" data-scroll-target="#metagenomics">Metagenomics</a></li>
-  <li><a href="#metabolomics" id="toc-metabolomics" class="nav-link" data-scroll-target="#metabolomics">metabolomics</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Omics Data Analysis</h1>
+<h1 class="title d-none d-lg-block">VarScan</h1>
+<p class="subtitle lead">Variant calling and somatic mutation/CNV detection for next-generation sequencing data</p>
 </div>
 
 
@@ -251,44 +242,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>what’s the difference between genomics and transcriptomics?</strong> Genomics is the study of an organism’s entire genome, which includes all of its genes and their interactions. Transcriptomics is the study of all of the transcripts, or RNA molecules, that are produced from an organism’s genes. Transcriptomics provides a more detailed look at the expression of genes and how they are regulated, while genomics looks at the entire genome and how it is organized and functions.</p>
-<p><strong>what’s the difference between proteomics and transcriptomics?</strong> Proteomics is the large-scale study of proteins, including their structure, function, and interactions, while transcriptomics is the study of transcriptomes, which are the complete set of RNA molecules, including mRNA, tRNA, and rRNA, produced by the transcription of DNA. Proteomics focuses on the proteins that are expressed in cells, while transcriptomics focuses on the transcripts that are produced and the role they play in gene expression.</p>
-<section id="genomics" class="level2">
-<h2 class="anchored" data-anchor-id="genomics">Genomics</h2>
-<p>Genomics is the study of an organism’s entire genome, which includes all of its genes and their interactions. Genomics is an interdisciplinary field that combines the techniques of genetics, molecular biology, bioinformatics, and computer science to study the structure, function, evolution, and regulation of genomes. Genomics is used to study the genetic makeup of organisms, including humans, plants, and animals, and to understand how genes are inherited and how they interact with each other and with the environment.</p>
-</section>
-<section id="transcriptomics" class="level2">
-<h2 class="anchored" data-anchor-id="transcriptomics">Transcriptomics</h2>
-</section>
-<section id="proteomics" class="level2">
-<h2 class="anchored" data-anchor-id="proteomics">Proteomics</h2>
-</section>
-<section id="metagenomics" class="level2">
-<h2 class="anchored" data-anchor-id="metagenomics">Metagenomics</h2>
-<p>Metagenomics is a field of study that focuses on the genomic analysis of entire microbial communities, typically including bacteria, archaea, and viruses, in an environmental sample. It is an interdisciplinary field that combines the techniques of genomics, bioinformatics, and ecology to study the collective genomes of microbial communities. Metagenomics can provide insight into the functions and interactions of microbial communities and their roles in various environments.</p>
-<p>what are the procedures of metagenomics?</p>
-<ol type="1">
-<li>Sample Collection: Metagenomics begins with the collection of an environmental sample, such as soil, water, or air.</li>
-<li>DNA Extraction: The DNA is then extracted from the sample, typically using a method such as lysis or centrifugation.</li>
-<li>Library Preparation: The extracted DNA is then prepared for sequencing in a process known as library preparation.</li>
-<li>Sequencing: The prepared DNA is then sequenced using next-generation sequencing (NGS) or other methods.</li>
-<li>Data Analysis: The resulting sequence data is then analyzed using bioinformatics tools and methods.</li>
-<li>Results Interpretation: The results of the analysis are then interpreted and used to draw conclusions about the microbial community and its role in the environment.</li>
-</ol>
-<p>what are the main developments in metagenomics in the last ten years?</p>
-<ol type="1">
-<li><p>Advances in sequencing technologies: Over the past decade, sequencing technologies have advanced significantly, creating a more cost-effective and efficient way to collect data on microbial communities. This has enabled researchers to generate unprecedented amounts of data, leading to new insights into the microbial world.</p></li>
-<li><p>Bioinformatics advances: With the increase in sequencing data, the development of powerful bioinformatics tools has become critical to extracting meaningful information from metagenomic data. As a result, new analysis pipelines have been developed to compare metagenomes, detect patterns in metagenomic data, and identify novel microbial species.</p></li>
-<li><p>Increased understanding of human microbiome: The development of metagenomics has enabled researchers to gain a better understanding of the human microbiome and its role in health and disease. This research has provided insights into how the microbiome contributes to various diseases and how it can be modified to improve human health.</p></li>
-<li><p>Environmental metagenomics: Metagenomics has also been used to explore microbial communities in the environment. This research has provided insights into how microbial communities interact with their environment, how they respond to environmental changes, and how they can be used to monitor environmental health.</p></li>
-</ol>
-</section>
-<section id="metabolomics" class="level2">
-<h2 class="anchored" data-anchor-id="metabolomics">metabolomics</h2>
-<p>Metabolomics is the study of the unique chemical fingerprints that specific cellular processes leave behind. It is an emerging field of study focused on the comprehensive analysis of the small molecule metabolites present in a biological sample, such as those from cells, tissues, or fluids. Through metabolomics, researchers can better understand the biochemical pathways and processes that are occurring in the body, providing insight into physiological states, disease processes, and responses to treatments.</p>
+<p>https://hpc.nih.gov/apps/VarScan.html</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
