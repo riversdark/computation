@@ -44,6 +44,7 @@ website:
         contents:
           - 01_0.qmd
           - 01_pyro_cov.ipynb
+          - 01_wgs.ipynb
       - section: "Protein Design"
         contents:
           - 02_0.qmd
