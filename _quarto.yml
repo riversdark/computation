@@ -11,6 +11,7 @@ project:
     - 06_0.qmd
     - 00_openai.ipynb
     - 01_pyro_cov.ipynb
+    - 01_varscan.ipynb
     - 01_wgs.ipynb
     - 02_AFdesign.ipynb
     - 02_AlphaFold.ipynb
@@ -44,6 +45,7 @@ website:
         contents:
           - 01_0.qmd
           - 01_pyro_cov.ipynb
+          - 01_varscan.ipynb
           - 01_wgs.ipynb
       - section: "Protein Design"
         contents:
