@@ -1,4 +1,12 @@
-chroma
+---
+title: "chroma"
+subtitle: "Illuminating protein space with a programmable generative model"
+format:
+  html:
+    code-fold: true
+---
+
+
 
 <https://www.biorxiv.org/content/10.1101/2022.12.01.518682v1>
 

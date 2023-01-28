@@ -1,9 +1,16 @@
 ---
-title: "Computational protein design"
+title: "Intro"
+subtitle: "Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc. with deep learning"
 format:
   html:
     code-fold: true
 ---
 
-Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc.
 
+
+- [Protein Structure Prediction using AlphaFold](02_AlphaFold.ipynb)
+- [Protein Design using AlphaFold](02_AFdesign.ipynb)
+- [Binding energy upon mutation (ddG) Prediction for protein-protein complexes](02_binding_ddg.ipynb)
+- [Illuminating protein space with a programmable generative model](02_chroma.qmd)
+- [Robust deep learning based protein sequence design using MPNN](02_MPNN.ipynb)
+- [Integrating structure prediction networks and diffusion generative models](02_RFdiffusion.ipynb)

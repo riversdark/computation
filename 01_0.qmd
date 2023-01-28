@@ -1,5 +1,6 @@
 ---
-title: "Omics Data Analysis"
+title: "Intro"
+subtitle: "Genomics, Transcriptomics, Proteomics, Metagenomics, Metabolomics, and more"
 format:
   html:
     code-fold: true
@@ -12,6 +13,10 @@ format:
 ## Genomics
 
 Genomics is the study of an organism's entire genome, which includes all of its genes and their interactions. Genomics is an interdisciplinary field that combines the techniques of genetics, molecular biology, bioinformatics, and computer science to study the structure, function, evolution, and regulation of genomes. Genomics is used to study the genetic makeup of organisms, including humans, plants, and animals, and to understand how genes are inherited and how they interact with each other and with the environment.
+
+- [Pyro models of SARS-CoV-2 variants](01_pyro_cov.ipynb)
+- [Variant calling and somatic mutation/CNV detection](01_varscan.ipynb)
+- [WGS variant calling using GATK](01_wgs.ipynb)
 
 ## Transcriptomics
 

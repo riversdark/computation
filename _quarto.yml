@@ -17,6 +17,7 @@ project:
     - 02_AlphaFold.ipynb
     - 02_binding_ddg.ipynb
     - 02_chroma.qmd
+    - 02_MPNN.ipynb
     - 02_RFdiffusion.ipynb
     - 03_difflinker.ipynb
 
@@ -50,9 +51,16 @@ website:
       - section: "Protein Design"
         contents:
           - 02_0.qmd
+          - 02_AlphaFold.ipynb
+          - 02_AFdesign.ipynb
+          - 02_binding_ddg.ipynb
+          - 02_chroma.qmd
+          - 02_MPNN.ipynb
+          - 02_RFdiffusion.ipynb
       - section: "Micromoecule Design"
         contents:
           - 03_0.qmd
+          - 03_difflinker.ipynb
       - section: "Molecular Dynamics"
         contents:
           - 04_0.qmd

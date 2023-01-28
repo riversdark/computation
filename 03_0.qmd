@@ -1,14 +1,14 @@
 ---
-title: "Computational micromolecule design"
+title: "Intro"
+subtitle: "Designing inhibitors, activators, allosteric modulators, etc. that bind to protein targets."
 format:
   html:
     code-fold: true
 ---
-
-Designing small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.
 
 Inhibitors are small molecules that bind to a protein target and prevent it from functioning. They are used to treat a variety of diseases, including cancer, diabetes, and cardiovascular disease. Inhibitors are typically designed to bind to a specific protein target, such as an enzyme, and prevent it from functioning. They are often used to treat diseases that are caused by an overactive protein, such as cancer, diabetes, and cardiovascular disease.
 
 Activators are small molecules that bind to a protein target and increase its activity. 
 Allosteric modulators are small molecules that bind to a protein target and change its activity. 
 
+[Equivariant 3D-Conditional Diffusion Model for Molecular Linker Design](03_difflinker.ipynb)
