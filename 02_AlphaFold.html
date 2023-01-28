@@ -323,8 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#download-the-code" id="toc-download-the-code" class="nav-link active" data-scroll-target="#download-the-code">Download the code</a></li>
-  <li><a href="#download-the-data" id="toc-download-the-data" class="nav-link" data-scroll-target="#download-the-data">Download the data</a></li>
-  <li><a href="#download-the-model-parameters" id="toc-download-the-model-parameters" class="nav-link" data-scroll-target="#download-the-model-parameters">Download the model parameters</a></li>
+  <li><a href="#the-model-parameters" id="toc-the-model-parameters" class="nav-link" data-scroll-target="#the-model-parameters">The model parameters</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
   </ul>
 </nav>
     </div>
@@ -348,9 +348,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<p>We are only going to download the repo, the parameters, and the data. We will not run the code.</p>
+<p>Other folding libraries:</p>
+<ul>
+<li>https://github.com/aqlaboratory/openfold</li>
+<li>https://github.com/sokrypton/ColabFold</li>
+<li>https://github.com/RosettaCommons/RoseTTAFold</li>
+<li>https://github.com/HeliXonProtein/OmegaFold</li>
+</ul>
+<p>ESM merits its own treatment: https://github.com/facebookresearch/esm</p>
 <section id="download-the-code" class="level1">
 <h1>Download the code</h1>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -360,73 +369,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(REPO_NAME):</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>git clone {REPO_ADDRESS}</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd {REPO_NAME}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print working directory</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd {REPO_NAME}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cloning into 'alphafold'...
-remote: Enumerating objects: 682, done.
-remote: Counting objects: 100% (48/48), done.
-remote: Compressing objects: 100% (40/40), done.
-remote: Total 682 (delta 7), reused 27 (delta 5), pack-reused 634
-Receiving objects: 100% (682/682), 16.04 MiB | 10.73 MiB/s, done.
-Resolving deltas: 100% (381/381), done.
-/home/ma/git/computation/alphafold
+remote: Enumerating objects: 767, done.
+remote: Counting objects: 100% (133/133), done.
+remote: Compressing objects: 100% (81/81), done.
+remote: Total 767 (delta 59), reused 73 (delta 44), pack-reused 634
+Receiving objects: 100% (767/767), 16.08 MiB | 12.14 MiB/s, done.
+Resolving deltas: 100% (433/433), done.
 /home/ma/git/computation/alphafold</code></pre>
 </div>
 </div>
 </section>
-<section id="download-the-data" class="level1">
-<h1>Download the data</h1>
-<p>use the download script provided by DeepMind</p>
-</section>
-<section id="download-the-model-parameters" class="level1">
-<h1>Download the model parameters</h1>
+<section id="the-model-parameters" class="level1">
+<h1>The model parameters</h1>
 <p>Deepmind updates the model parameters every 6 months. The latest model parameters are available at the following link:</p>
 <p>https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar</p>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PARAMS_ADDRESS <span class="op">=</span> <span class="st">"https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PARAMS_NAME <span class="op">=</span> <span class="st">"alphafold_params_2022-12-06.tar"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>PARAMS_DIR <span class="op">=</span> <span class="st">"/mnt/nas/alphafold/alphafold_params_2022-12-06"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download params if not already downloaded, create directory if not already created, including parent directories</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(PARAMS_DIR):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>mkdir <span class="op">-</span>p {PARAMS_DIR}</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>wget {PARAMS_ADDRESS} <span class="op">-</span>P {PARAMS_DIR}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>tar <span class="op">-</span>xvf {PARAMS_DIR}<span class="op">/</span>{PARAMS_NAME} <span class="op">-</span>C {PARAMS_DIR}</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>--2023-01-11 13:53:06--  https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar
-Resolving storage.googleapis.com (storage.googleapis.com)... 172.217.160.112, 142.251.43.16, 172.217.163.48, ...
-Connecting to storage.googleapis.com (storage.googleapis.com)|172.217.160.112|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 5587968000 (5.2G) [application/x-tar]
-Saving to: ‘/mnt/nas/alphafold/alphafold_params_2022-12-06/alphafold_params_2022-12-06.tar’
-
-alphafold_params_20 100%[===================&gt;]   5.20G  51.9MB/s    in 1m 55s  
-
-2023-01-11 13:55:03 (46.2 MB/s) - ‘/mnt/nas/alphafold/alphafold_params_2022-12-06/alphafold_params_2022-12-06.tar’ saved [5587968000/5587968000]
-
-params_model_1.npz
-params_model_2.npz
-params_model_3.npz
-params_model_4.npz
-params_model_5.npz
-params_model_1_ptm.npz
-params_model_2_ptm.npz
-params_model_3_ptm.npz
-params_model_4_ptm.npz
-params_model_5_ptm.npz
-params_model_1_multimer_v3.npz
-params_model_2_multimer_v3.npz
-params_model_3_multimer_v3.npz
-params_model_4_multimer_v3.npz
-params_model_5_multimer_v3.npz
-LICENSE</code></pre>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>tar <span class="op">-</span>xvf {PARAMS_DIR}<span class="op">/</span>{PARAMS_NAME} <span class="op">-</span>C {PARAMS_DIR}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+</section>
+<section id="the-data" class="level1">
+<h1>The data</h1>
+<p>The data will be downloaded separately, since it’s not a task to be done in a single notebook session.</p>
 
 
 </section>
