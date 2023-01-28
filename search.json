@@ -16,58 +16,58 @@
   {
     "objectID": "01_0.html",
     "href": "01_0.html",
-    "title": "Omics Data Analysis",
+    "title": "Intro",
     "section": "",
     "text": "what’s the difference between genomics and transcriptomics? Genomics is the study of an organism’s entire genome, which includes all of its genes and their interactions. Transcriptomics is the study of all of the transcripts, or RNA molecules, that are produced from an organism’s genes. Transcriptomics provides a more detailed look at the expression of genes and how they are regulated, while genomics looks at the entire genome and how it is organized and functions.\nwhat’s the difference between proteomics and transcriptomics? Proteomics is the large-scale study of proteins, including their structure, function, and interactions, while transcriptomics is the study of transcriptomes, which are the complete set of RNA molecules, including mRNA, tRNA, and rRNA, produced by the transcription of DNA. Proteomics focuses on the proteins that are expressed in cells, while transcriptomics focuses on the transcripts that are produced and the role they play in gene expression."
   },
   {
     "objectID": "01_0.html#genomics",
     "href": "01_0.html#genomics",
-    "title": "Omics Data Analysis",
+    "title": "Intro",
     "section": "Genomics",
-    "text": "Genomics\nGenomics is the study of an organism’s entire genome, which includes all of its genes and their interactions. Genomics is an interdisciplinary field that combines the techniques of genetics, molecular biology, bioinformatics, and computer science to study the structure, function, evolution, and regulation of genomes. Genomics is used to study the genetic makeup of organisms, including humans, plants, and animals, and to understand how genes are inherited and how they interact with each other and with the environment."
+    "text": "Genomics\nGenomics is the study of an organism’s entire genome, which includes all of its genes and their interactions. Genomics is an interdisciplinary field that combines the techniques of genetics, molecular biology, bioinformatics, and computer science to study the structure, function, evolution, and regulation of genomes. Genomics is used to study the genetic makeup of organisms, including humans, plants, and animals, and to understand how genes are inherited and how they interact with each other and with the environment.\n\nPyro models of SARS-CoV-2 variants\nVariant calling and somatic mutation/CNV detection\nWGS variant calling using GATK"
   },
   {
     "objectID": "01_0.html#transcriptomics",
     "href": "01_0.html#transcriptomics",
-    "title": "Omics Data Analysis",
+    "title": "Intro",
     "section": "Transcriptomics",
     "text": "Transcriptomics"
   },
   {
     "objectID": "01_0.html#proteomics",
     "href": "01_0.html#proteomics",
-    "title": "Omics Data Analysis",
+    "title": "Intro",
     "section": "Proteomics",
     "text": "Proteomics"
   },
   {
     "objectID": "01_0.html#metagenomics",
     "href": "01_0.html#metagenomics",
-    "title": "Omics Data Analysis",
+    "title": "Intro",
     "section": "Metagenomics",
     "text": "Metagenomics\nMetagenomics is a field of study that focuses on the genomic analysis of entire microbial communities, typically including bacteria, archaea, and viruses, in an environmental sample. It is an interdisciplinary field that combines the techniques of genomics, bioinformatics, and ecology to study the collective genomes of microbial communities. Metagenomics can provide insight into the functions and interactions of microbial communities and their roles in various environments.\nwhat are the procedures of metagenomics?\n\nSample Collection: Metagenomics begins with the collection of an environmental sample, such as soil, water, or air.\nDNA Extraction: The DNA is then extracted from the sample, typically using a method such as lysis or centrifugation.\nLibrary Preparation: The extracted DNA is then prepared for sequencing in a process known as library preparation.\nSequencing: The prepared DNA is then sequenced using next-generation sequencing (NGS) or other methods.\nData Analysis: The resulting sequence data is then analyzed using bioinformatics tools and methods.\nResults Interpretation: The results of the analysis are then interpreted and used to draw conclusions about the microbial community and its role in the environment.\n\nwhat are the main developments in metagenomics in the last ten years?\n\nAdvances in sequencing technologies: Over the past decade, sequencing technologies have advanced significantly, creating a more cost-effective and efficient way to collect data on microbial communities. This has enabled researchers to generate unprecedented amounts of data, leading to new insights into the microbial world.\nBioinformatics advances: With the increase in sequencing data, the development of powerful bioinformatics tools has become critical to extracting meaningful information from metagenomic data. As a result, new analysis pipelines have been developed to compare metagenomes, detect patterns in metagenomic data, and identify novel microbial species.\nIncreased understanding of human microbiome: The development of metagenomics has enabled researchers to gain a better understanding of the human microbiome and its role in health and disease. This research has provided insights into how the microbiome contributes to various diseases and how it can be modified to improve human health.\nEnvironmental metagenomics: Metagenomics has also been used to explore microbial communities in the environment. This research has provided insights into how microbial communities interact with their environment, how they respond to environmental changes, and how they can be used to monitor environmental health."
   },
   {
     "objectID": "01_0.html#metabolomics",
     "href": "01_0.html#metabolomics",
-    "title": "Omics Data Analysis",
+    "title": "Intro",
     "section": "metabolomics",
     "text": "metabolomics\nMetabolomics is the study of the unique chemical fingerprints that specific cellular processes leave behind. It is an emerging field of study focused on the comprehensive analysis of the small molecule metabolites present in a biological sample, such as those from cells, tissues, or fluids. Through metabolomics, researchers can better understand the biochemical pathways and processes that are occurring in the body, providing insight into physiological states, disease processes, and responses to treatments."
   },
   {
     "objectID": "02_0.html",
     "href": "02_0.html",
-    "title": "Computational protein design",
+    "title": "Intro",
     "section": "",
-    "text": "Designing functional proteins, peptides, enzymes, antibodies, nanobodies, etc."
+    "text": "Protein Structure Prediction using AlphaFold\nProtein Design using AlphaFold\nBinding energy upon mutation (ddG) Prediction for protein-protein complexes\nIlluminating protein space with a programmable generative model\nRobust deep learning based protein sequence design using MPNN\nIntegrating structure prediction networks and diffusion generative models"
   },
   {
     "objectID": "03_0.html",
     "href": "03_0.html",
-    "title": "Computational micromolecule design",
+    "title": "Intro",
     "section": "",
-    "text": "Inhibitors are small molecules that bind to a protein target and prevent it from functioning. They are used to treat a variety of diseases, including cancer, diabetes, and cardiovascular disease. Inhibitors are typically designed to bind to a specific protein target, such as an enzyme, and prevent it from functioning. They are often used to treat diseases that are caused by an overactive protein, such as cancer, diabetes, and cardiovascular disease.\nActivators are small molecules that bind to a protein target and increase its activity. Allosteric modulators are small molecules that bind to a protein target and change its activity."
+    "text": "Activators are small molecules that bind to a protein target and increase its activity. Allosteric modulators are small molecules that bind to a protein target and change its activity.\nEquivariant 3D-Conditional Diffusion Model for Molecular Linker Design"
   },
   {
     "objectID": "06_0.html",
@@ -212,49 +212,49 @@
   {
     "objectID": "02_AFdesign.html",
     "href": "02_AFdesign.html",
-    "title": "Scientific Computation at large",
+    "title": "AFdesign",
     "section": "",
-    "text": "import os\nimport sys\n\nREPO_ADDRESS = \"https://github.com/sokrypton/ColabDesign.git\"\nREPO_DIR = \"/home/ma/git/computation/ColabDesign\"\n\nif not os.path.exists(REPO_DIR):\n    !git clone {REPO_ADDRESS}\n\n%cd {REPO_DIR}\n\n\nPARAMS_DIR = \"/mnt/nas/alphafold/alphafold_params_2022-12-06/\"\nPARAMS_LOCAL_DIR = \"params\"\n\n# Create a symbolic link to the params directory\nif not os.path.exists(PARAMS_LOCAL_DIR):\n    !ln -s {PARAMS_DIR} {PARAMS_LOCAL_DIR}\n\n\nimport os\nfrom colabdesign import mk_afdesign_model, clear_mem\nfrom IPython.display import HTML\nimport numpy as np\n\n\n# Download PDB file from RCSB, given a PDB ID\ndef download_pdb(pdb_id):\n    pdb_id = pdb_id.lower()\n    pdb_filename = f\"{pdb_id}.pdb\"\n    if not os.path.exists(pdb_filename):\n        !wget https://files.rcsb.org/download/{pdb_filename}\n    return pdb_filename\n\n\ndownload_pdb(\"6LU7\")\n\nThe losses being optimised in the design process are defined in the model.set_opt function. The following losses are available:\n\ngeneral losses\n\npae - minimizes the predicted alignment error\nplddt - maximizes the predicted LDDT (local distance difference test)\npae and plddt values are between 0 and 1 (where lower is better for both)\n\nfixbb specific losses\n\ndgram_cce - minimizes the categorical-crossentropy between predicted distogram and one extracted from pdb.\nfape - minimize difference between coordinates (frame aligned point error)\nwe find dgram_cce loss to be more stable for design (compared to fape)\n\nhallucination specific losses\n\ncon - maximize 1 contacts per position. model.set_opt(\"con\",num=1)\n\nbinder specific losses\n\npae - minimize PAE at interface and within binder\ncon - - maximize 2 contacts per binder position, within binder. model.set_opt(\"con\",num=2)\ni_con - maximize 1 contacts per binder position model.set_opt(\"i_con\",num=1)\n\npartial hallucination specific losses\n\nsc_fape - sidechain-specific fape\n\n\nThe pAE (predicted alignment error) measures\ndistogram is defined as\nIn AlphaFold, the plddt score measures the percentage of aligned residues that are within 8 angstroms of the correct position. The rmsd score measures the root-mean-square deviation of the aligned residues from the correct position. The confidence score is the probability that the model is correct. The confidence score is not used in the AlphaFold ranking, but is included for completeness."
-  },
-  {
-    "objectID": "02_AFdesign.html#ten",
-    "href": "02_AFdesign.html#ten",
-    "title": "Scientific Computation at large",
-    "section": "1TEN",
-    "text": "1TEN\nFor a given protein backbone, generate/design a new sequence that AlphaFold thinks folds into that conformation.\n\nclear_mem()\naf_model = mk_afdesign_model(protocol=\"fixbb\")\naf_model.prep_inputs(pdb_filename=download_pdb(\"1TEN\"), chain=\"A\")\n\nprint(\"length\",  af_model._len)\nprint(\"weights\", af_model.opt[\"weights\"])\n\n\naf_model.restart()\naf_model.design_3stage()\n\n\naf_model.plot_traj()  \n\nThe plot_traj function plots the training trajectories.\n\naf_model.save_pdb(f\"tenascin_{af_model.protocol}.pdb\")\n\n\nHTML(af_model.animate())\n\n\naf_model.get_seqs()"
+    "text": "Fixed backbone design\nFor a given protein backbone, generate/design a new sequence that AlphaFold thinks folds into that conformation.\n\nclear_mem()\naf_model = mk_afdesign_model(protocol=\"fixbb\")\naf_model.prep_inputs(pdb_filename=download_pdb(\"1TEN\"), chain=\"A\")\n\nprint(\"length\",  af_model._len)\nprint(\"weights\", af_model.opt[\"weights\"])\n\n\naf_model.restart()\naf_model.design_3stage()\n\n\naf_model.plot_traj()  \n\nThe plot_traj function plots the training trajectories.\n\naf_model.save_pdb(f\"tenascin_{af_model.protocol}.pdb\")\n\n\nHTML(af_model.animate())\n\n\naf_model.get_seqs()\n\n\n\nHallucination"
   },
   {
     "objectID": "02_AlphaFold.html",
     "href": "02_AlphaFold.html",
-    "title": "Scientific Computation at large",
+    "title": "AlphaFold",
     "section": "",
     "text": "Download the data\nuse the download script provided by DeepMind\n\n\nDownload the model parameters\nDeepmind updates the model parameters every 6 months. The latest model parameters are available at the following link:\nhttps://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar\n\nPARAMS_ADDRESS = \"https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar\"\nPARAMS_NAME = \"alphafold_params_2022-12-06.tar\"\nPARAMS_DIR = \"/mnt/nas/alphafold/alphafold_params_2022-12-06\"\n\n\n# download params if not already downloaded, create directory if not already created, including parent directories\nif not os.path.exists(PARAMS_DIR):\n    !mkdir -p {PARAMS_DIR}\n    !wget {PARAMS_ADDRESS} -P {PARAMS_DIR}\n    !tar -xvf {PARAMS_DIR}/{PARAMS_NAME} -C {PARAMS_DIR}\n\n\n--2023-01-11 13:53:06--  https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar\nResolving storage.googleapis.com (storage.googleapis.com)... 172.217.160.112, 142.251.43.16, 172.217.163.48, ...\nConnecting to storage.googleapis.com (storage.googleapis.com)|172.217.160.112|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 5587968000 (5.2G) [application/x-tar]\nSaving to: ‘/mnt/nas/alphafold/alphafold_params_2022-12-06/alphafold_params_2022-12-06.tar’\n\nalphafold_params_20 100%[===================>]   5.20G  51.9MB/s    in 1m 55s  \n\n2023-01-11 13:55:03 (46.2 MB/s) - ‘/mnt/nas/alphafold/alphafold_params_2022-12-06/alphafold_params_2022-12-06.tar’ saved [5587968000/5587968000]\n\nparams_model_1.npz\nparams_model_2.npz\nparams_model_3.npz\nparams_model_4.npz\nparams_model_5.npz\nparams_model_1_ptm.npz\nparams_model_2_ptm.npz\nparams_model_3_ptm.npz\nparams_model_4_ptm.npz\nparams_model_5_ptm.npz\nparams_model_1_multimer_v3.npz\nparams_model_2_multimer_v3.npz\nparams_model_3_multimer_v3.npz\nparams_model_4_multimer_v3.npz\nparams_model_5_multimer_v3.npz\nLICENSE"
   },
   {
     "objectID": "02_binding_ddg.html",
     "href": "02_binding_ddg.html",
-    "title": "Predicting ddG",
+    "title": "binding_ddG",
     "section": "",
     "text": "# suppress warnings\nimport warnings\nwarnings.filterwarnings('ignore')\n\n\n\nMUT_PROTEIN = \"data/example_mut.pdb\"\nWT_PROTEIN = \"data/example_wt.pdb\"\n\n\n# show the protein chains and number of amino acids\ndef show_protein(protein):\n    from Bio.PDB import PDBParser\n\n    parser = PDBParser()\n    structure = parser.get_structure(\"protein\", protein)\n    for model in structure:\n        for chain in model:\n            print(chain.id, len(chain))\n\nshow_protein(MUT_PROTEIN)\nshow_protein(WT_PROTEIN)\n\nA 214\nB 214\nC 200\nA 214\nB 214\nC 200\n\n\n\n\n# Get Amino Acid sequence from PDB file\ndef get_sequence(pdb_file, chain=\"A\"):\n    from Bio.PDB import PDBParser, PPBuilder\n\n    parser = PDBParser()\n    structure = parser.get_structure(\"protein\", pdb_file)\n    ppb = PPBuilder()\n    for pp in ppb.build_peptides(structure[0][chain]):\n        return pp.get_sequence()\n\n# Get sequence of mutated protein\nmut_seq = get_sequence(MUT_PROTEIN)\n# Get sequence of wild type protein\nwt_seq = get_sequence(WT_PROTEIN)\n\n# Show sequences\nprint(\"Mutated protein sequence: \", mut_seq)\nprint(\"Wild type protein sequence: \", wt_seq)\n\nMutated protein sequence:  DIKMTQSPSSMYASLGERVTITCKASQDIRKYLNWYQQKPWKSPKTLIYYATSLADGVPSRFSGSGSGQDYSLTISSLESDDTATYYCLQHGESPYTFGGGTKLEINRADAAPTVSIFPPSSEQLTSGGASVVCFLNNFYPKDINVKWKIDGSERQNGVLNSWTDQDSKDSTYSMSSTLTLTKDEYERHNSYTCEATHKTSTSPIVKSFNRNEC\nWild type protein sequence:  DIKMTQSPSSMYASLGERVTITCKASQDIRKYLNWYQQKPWKSPKTLIYYATSLADGVPSRFSGSGSGQDYSLTISSLESDDTATYYCLQHGESPYTFGGGTKLEINRADAAPTVSIFPPSSEQLTSGGASVVCFLNNFYPKDINVKWKIDGSERQNGVLNSWTDQDSKDSTYSMSSTLTLTKDEYERHNSYTCEATHKTSTSPIVKSFNRNEC\n\n\n\n# Show difference between sequences\ndef show_aa_diff(seq1, seq2):\n    for i in range(len(seq1)):\n        if seq1[i] != seq2[i]:\n            print(f\"Position {i+1}: {seq1[i]} -> {seq2[i]}\")\n\n\nseq1 = \"ABCD\"\nseq2 = \"ABEF\"\nshow_aa_diff(seq1, seq2)\n\nPosition 3: C -> E\nPosition 4: D -> F\n\n\n\n\n# loop through the peptide chains to find the mutations\nfor chain in \"ABC\":\n    print(f\"Chain {chain}:\")\n    show_aa_diff(get_sequence(MUT_PROTEIN, chain), get_sequence(WT_PROTEIN, chain))\n\nChain A:\nChain B:\nChain C:\n\n\n\n# compute the ddG\n!python scripts/predict.py $WT_PROTEIN $MUT_PROTEIN\n\nPredicted ddG: -0.30"
   },
   {
     "objectID": "02_chroma.html",
     "href": "02_chroma.html",
-    "title": "Scientific Computation at large",
+    "title": "chroma",
     "section": "",
-    "text": "https://www.biorxiv.org/content/10.1101/2022.12.01.518682v1\nhttps://generatebiomedicines.com/chroma\nhttps://github.com/lucidrains/chroma-pytorch"
+    "text": "https://generatebiomedicines.com/chroma\nhttps://github.com/lucidrains/chroma-pytorch"
+  },
+  {
+    "objectID": "02_MPNN.html",
+    "href": "02_MPNN.html",
+    "title": "ProteinMPNN",
+    "section": "",
+    "text": "import os\n\nREPO_ADDRESS = \"https://github.com/dauparas/ProteinMPNN.git\"\n# Download GitHub repo if not already downloaded\nif not os.path.exists(\"ProteinMPNN\"):\n    !git clone $REPO_ADDRESS\n\n# Change working directory to repo\nos.chdir(\"ProteinMPNN\")"
   },
   {
     "objectID": "02_RFdiffusion.html",
     "href": "02_RFdiffusion.html",
-    "title": "Scientific Computation at large",
+    "title": "RFdiffusion",
     "section": "",
-    "text": "Protein monomer design\n\n\nProtein binder design\n\n\nSymmetric oligomer design\nsymmetric oligomers can be used to\n\n\nEnzyme active site scaffolding\nenzyme active sites are\n\n\nSymmetric motif scaffolding (e.g. helix, beta sheet) design\nSymmetric motif scaffolds are designed by specifying the sequence of the motif and the number of repeats. The motif is then repeated in the sequence of the scaffold. The motif is specified by a list of amino acids, where each amino acid is specified by a one-letter code. The number of repeats is specified by an integer."
+    "text": "Protein binder design\n\n\nSymmetric oligomer design\nsymmetric oligomers can be used to\n\n\nEnzyme active site scaffolding\nenzyme active sites are\n\n\nSymmetric motif scaffolding (e.g. helix, beta sheet) design\nSymmetric motif scaffolds are designed by specifying the sequence of the motif and the number of repeats. The motif is then repeated in the sequence of the scaffold. The motif is specified by a list of amino acids, where each amino acid is specified by a one-letter code. The number of repeats is specified by an integer."
   },
   {
     "objectID": "03_difflinker.html",
     "href": "03_difflinker.html",
-    "title": "Scientific Computation at large",
+    "title": "DiffLinker",
     "section": "",
     "text": "import os\nimport sys\n\nREPO_ADDRESS = \"https://github.com/igashov/DiffLinker.git\"\nREPO_NAME = \"DiffLinker\"\n\nif not os.path.exists(REPO_NAME):\n    !git clone {REPO_ADDRESS}\n\n%cd {REPO_NAME}\n\nCloning into 'DiffLinker'...\nremote: Enumerating objects: 185, done.\nremote: Counting objects: 100% (185/185), done.\nremote: Compressing objects: 100% (136/136), done.\nremote: Total 185 (delta 81), reused 139 (delta 44), pack-reused 0\nReceiving objects: 100% (185/185), 17.92 MiB | 13.56 MiB/s, done.\nResolving deltas: 100% (81/81), done.\n/home/ma/git/computation/DiffLinker"
   }
