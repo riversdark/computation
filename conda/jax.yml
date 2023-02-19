@@ -32,3 +32,6 @@ dependencies:
     - scanpy
     - scvi-tools[tutorials]
     - pyro-ppl[extras]
+    - transformers 
+    - sacremoses
+    - dynamax[notebooks]
