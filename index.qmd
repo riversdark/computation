@@ -29,6 +29,6 @@ Computer simulations to understand the molecular mechanisms of biological system
 
 In depth analysis of key machine learning models and their applications.
 
-# 05 New technologies
+# 06 New technologies
 
 New technologies under investigation.

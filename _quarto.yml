@@ -20,6 +20,9 @@ project:
     - 02_MPNN.ipynb
     - 02_RFdiffusion.ipynb
     - 03_difflinker.ipynb
+    - 05_BioGPT.ipynb
+    - 05_dnn.ipynb
+    - 05_openai.ipynb
 
 execute:
   freeze: auto
