@@ -29,6 +29,7 @@ dependencies:
     - rdatasets
     - umap-learn
     - openai
+    - paper-qa
     - scanpy
     - scvi-tools[tutorials]
     - pyro-ppl[extras]
