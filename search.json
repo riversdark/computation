@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Assorted essays",
     "section": "",
-    "text": "Click on the links on the left to navigate to the different sections.\n\n01 Omics Data Analysis\nGenomics, transcriptomics, proteomics, metabolomics, lipidomics, etc., uncovering the molecular mechanisms by studying their sequence information.\n\n\n02 Computational protein design\nDesigning functional proteins, peptides, enzymes, antibodies, nanobodies, etc.\n\n\n03 Computational micromolecule design\nDesigning small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.\n\n\n04 Molecular dynamics\nComputer simulations to understand the molecular mechanisms of biological systems.\n\n\n05 Machine learning\nIn depth analysis of key machine learning models and their applications.\n\n\n05 New technologies\nNew technologies under investigation."
+    "text": "Click on the links on the left to navigate to the different sections.\n\n01 Omics Data Analysis\nGenomics, transcriptomics, proteomics, metabolomics, lipidomics, etc., uncovering the molecular mechanisms by studying their sequence information.\n\n\n02 Computational protein design\nDesigning functional proteins, peptides, enzymes, antibodies, nanobodies, etc.\n\n\n03 Computational micromolecule design\nDesigning small molecules that bind to protein targets, this includes inhibitors, activators, allosteric modulators, etc.\n\n\n04 Molecular dynamics\nComputer simulations to understand the molecular mechanisms of biological systems.\n\n\n05 Machine learning\nIn depth analysis of key machine learning models and their applications.\n\n\n06 New technologies\nNew technologies under investigation."
   },
   {
     "objectID": "01_0.html",
@@ -75,13 +75,6 @@
     "title": "New technologies",
     "section": "",
     "text": "氘代技术"
-  },
-  {
-    "objectID": "00_openai.html",
-    "href": "00_openai.html",
-    "title": "Scientific Computation at large",
-    "section": "",
-    "text": "# Set your secret API key\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")"
   },
   {
     "objectID": "01_pyro_cov.html",
@@ -257,5 +250,138 @@
     "title": "DiffLinker",
     "section": "",
     "text": "import os\nimport sys\n\nREPO_ADDRESS = \"https://github.com/igashov/DiffLinker.git\"\nREPO_NAME = \"DiffLinker\"\n\nif not os.path.exists(REPO_NAME):\n    !git clone {REPO_ADDRESS}\n\n%cd {REPO_NAME}\n\nCloning into 'DiffLinker'...\nremote: Enumerating objects: 185, done.\nremote: Counting objects: 100% (185/185), done.\nremote: Compressing objects: 100% (136/136), done.\nremote: Total 185 (delta 81), reused 139 (delta 44), pack-reused 0\nReceiving objects: 100% (185/185), 17.92 MiB | 13.56 MiB/s, done.\nResolving deltas: 100% (81/81), done.\n/home/ma/git/computation/DiffLinker"
+  },
+  {
+    "objectID": "05_BioGPT.html",
+    "href": "05_BioGPT.html",
+    "title": "Scientific Computation at large",
+    "section": "",
+    "text": "The BioGPT-Large model with 1.5B paramters hosted at huggingface.\n\nimport torch\nfrom transformers import BioGptTokenizer, BioGptForCausalLM, set_seed, pipeline\n\n\ntokenizer = BioGptTokenizer.from_pretrained(\"microsoft/biogpt\")\nmodel = BioGptForCausalLM.from_pretrained(\"microsoft/biogpt\")\n\nBeam-search decoding. The beam size determines the number of hypotheses to consider at each step. The higher the beam size, the more accurate the results, but the slower the inference.\n\n\nset_seed(43)\nsentence = \"to differentiate germline and sporadic mutations, we need:\"\ninputs = tokenizer(sentence, return_tensors=\"pt\")\n\nwith torch.no_grad():\n    beam_output = model.generate(**inputs,\n                                min_length=100,\n                                max_length=1024,\n                                num_beams=10,\n                                early_stopping=True\n                                )\ntokenizer.decode(beam_output[0], skip_special_tokens=True)\n\n'to differentiate germline and sporadic mutations, we need: (1) a better understanding of the mechanisms of germline mutation; (2) a better understanding of the mechanisms of somatic mutation; (3) a better understanding of the mechanisms of somatic mutation; (4) a better understanding of the mechanisms of germline mutation; (5) a better understanding of the mechanisms of somatic mutation; (6) a better understanding of the mechanisms of germline mutation; (7) a better understanding of the mechanisms of somatic mutation; and (8) a better understanding of the mechanisms of germline mutation.'\n\n\nYou can use this model directly with a pipeline for text generation. Since the generation relies on some randomness, we set a seed for reproducibility:\n\ngenerator = pipeline('text-generation', model=model, tokenizer=tokenizer)\ngenerator(sentence, max_length=50, num_return_sequences=1, do_sample=True)\n\n[{'generated_text': 'to differentiate germline and sporadic mutations, we need: (1) methods / assays not exclusively focused on germline ones such as the identification of new disease-associated single nucleotide variants and next-generation sequencing strategies able to characterize non-inherited disease-causing variants'}]\n\n\nHere is how to use this model to get the features of a given text in PyTorch:\n\nfrom transformers import BioGptTokenizer, BioGptForCausalLM\ntokenizer = BioGptTokenizer.from_pretrained(\"microsoft/biogpt\")\nmodel = BioGptForCausalLM.from_pretrained(\"microsoft/biogpt\")\ntext = \"Replace me by any text you'd like.\"\nencoded_input = tokenizer(text, return_tensors='pt')\noutput = model(**encoded_input)"
+  },
+  {
+    "objectID": "05_dnn.html",
+    "href": "05_dnn.html",
+    "title": "Neural network: layers and architectures",
+    "section": "",
+    "text": "In this notebook we’ll introduce the basic layers and architectures used in deep neural networks.\nThe code will be written in PyTorch, but the concepts are applicable to any deep learning framework."
+  },
+  {
+    "objectID": "05_dnn.html#linear-layers",
+    "href": "05_dnn.html#linear-layers",
+    "title": "Neural network: layers and architectures",
+    "section": "Linear layers",
+    "text": "Linear layers\nA linear layer is a layer that applies a linear transformation to its input. It is defined by a weight matrix and a bias vector. The output is computed as:\n\\[y = f(x; \\theta) = Wx + b\\]\nwhere \\(x\\) is the input, \\(W\\) is the weight matrix, \\(b\\) is the bias vector.\nThe linear layer is implemented in PyTorch as F.linear.\n\n\nCode\n# define a linear layer in NumPy\ndef linear_layer(x, w, b):\n    return x @ w + b\n\n\n\n\nCode\nin_features = 28 * 28\nout_features = 10\n\n# test the linear layer\nx = torch.randn(1, in_features)\nw = torch.randn(in_features, out_features)\nb = torch.randn(out_features)\n\n# compare the output of the NumPy implementation with the PyTorch implementation\nassert torch.allclose(linear_layer(x, w, b), F.linear(x, w.T, b))\n\n\nnote that in PyTorch the weight matrix has the shape (out_features, in_features) so we have to transpose it."
+  },
+  {
+    "objectID": "05_dnn.html#non-linear-activations",
+    "href": "05_dnn.html#non-linear-activations",
+    "title": "Neural network: layers and architectures",
+    "section": "Non-linear activations",
+    "text": "Non-linear activations\nIt’s useless to have deep neural networks with only linear layers because they can be replaced by a single linear layer. We need to add non-linear activations to the network to make it more powerful.\n\nGELU\nThe GELU activation function, which stands for Gaussian Error Linear Unit, is a popular activation function used in neural networks. It was first introduced by Dan Hendrycks and Kevin Gimpel in their paper “Gaussian Error Linear Units (GELUs)” in 2017.\nThe GELU activation function is defined as follows:\n\\[GELU(x) = x \\Phi(x) = 0.5 x (1 + erf(x/\\sqrt{2})) \\]\nwhere \\(\\Phi\\) is the cumulative distribution function of the standard normal distribution and erf is the error function.\nThe GELU activation function has a similar shape to the widely used ReLU activation function, but with some key differences. One of the main advantages of GELU over ReLU is that it has a non-zero mean, which can help to reduce the vanishing gradient problem. Additionally, GELU has been shown to outperform other activation functions in certain scenarios, such as on language modeling tasks.\nHowever, it should be noted that GELU is a relatively new activation function and may not always be the best choice for every application. As with any neural network component, it is important to experiment with different activation functions to find the one that works best for your specific problem.\n\n\nCode\n# define a GELU layer in NumPy\ndef gelu_layer(x):\n    return 0.5 * x * (1 + np.tanh(np.sqrt(2 / np.pi) * (x + 0.044715 * np.power(x, 3))))\n\n\n\n\nCode\n# test the GELU layer\nx = torch.randn(1, 2)\n\nprint(gelu_layer(x), F.gelu(x))\n\n\ntensor([[-0.1595, -0.1053]]) tensor([[-0.1594, -0.1053]])\n\n\nThe two implementations do not always give the same results because the torch.erf function is not as precise as the scipy.special.erf function."
+  },
+  {
+    "objectID": "05_dnn.html#conv-layers",
+    "href": "05_dnn.html#conv-layers",
+    "title": "Neural network: layers and architectures",
+    "section": "Conv layers",
+    "text": "Conv layers"
+  },
+  {
+    "objectID": "05_dnn.html#resiudal-blocks",
+    "href": "05_dnn.html#resiudal-blocks",
+    "title": "Neural network: layers and architectures",
+    "section": "resiudal blocks",
+    "text": "resiudal blocks"
+  },
+  {
+    "objectID": "05_dnn.html#normalization-layers",
+    "href": "05_dnn.html#normalization-layers",
+    "title": "Neural network: layers and architectures",
+    "section": "Normalization layers",
+    "text": "Normalization layers"
+  },
+  {
+    "objectID": "05_dnn.html#dropout",
+    "href": "05_dnn.html#dropout",
+    "title": "Neural network: layers and architectures",
+    "section": "Dropout",
+    "text": "Dropout"
+  },
+  {
+    "objectID": "05_dnn.html#attention",
+    "href": "05_dnn.html#attention",
+    "title": "Neural network: layers and architectures",
+    "section": "Attention",
+    "text": "Attention"
+  },
+  {
+    "objectID": "05_dnn.html#recurrent-layers",
+    "href": "05_dnn.html#recurrent-layers",
+    "title": "Neural network: layers and architectures",
+    "section": "Recurrent layers",
+    "text": "Recurrent layers"
+  },
+  {
+    "objectID": "05_dnn.html#multiplicative-layers",
+    "href": "05_dnn.html#multiplicative-layers",
+    "title": "Neural network: layers and architectures",
+    "section": "Multiplicative layers",
+    "text": "Multiplicative layers"
+  },
+  {
+    "objectID": "05_dnn.html#implicit-layers",
+    "href": "05_dnn.html#implicit-layers",
+    "title": "Neural network: layers and architectures",
+    "section": "Implicit layers",
+    "text": "Implicit layers"
+  },
+  {
+    "objectID": "05_dnn.html#feedforward-neural-networks",
+    "href": "05_dnn.html#feedforward-neural-networks",
+    "title": "Neural network: layers and architectures",
+    "section": "Feedforward Neural Networks",
+    "text": "Feedforward Neural Networks"
+  },
+  {
+    "objectID": "05_dnn.html#convolutional-neural-networks",
+    "href": "05_dnn.html#convolutional-neural-networks",
+    "title": "Neural network: layers and architectures",
+    "section": "Convolutional Neural Networks",
+    "text": "Convolutional Neural Networks"
+  },
+  {
+    "objectID": "05_dnn.html#autoencoders",
+    "href": "05_dnn.html#autoencoders",
+    "title": "Neural network: layers and architectures",
+    "section": "Autoencoders",
+    "text": "Autoencoders"
+  },
+  {
+    "objectID": "05_dnn.html#recurrent-neural-networks",
+    "href": "05_dnn.html#recurrent-neural-networks",
+    "title": "Neural network: layers and architectures",
+    "section": "Recurrent Neural Networks",
+    "text": "Recurrent Neural Networks"
+  },
+  {
+    "objectID": "05_dnn.html#transformers",
+    "href": "05_dnn.html#transformers",
+    "title": "Neural network: layers and architectures",
+    "section": "Transformers",
+    "text": "Transformers"
+  },
+  {
+    "objectID": "05_dnn.html#graph-neural-networks",
+    "href": "05_dnn.html#graph-neural-networks",
+    "title": "Neural network: layers and architectures",
+    "section": "Graph Neural Networks",
+    "text": "Graph Neural Networks"
+  },
+  {
+    "objectID": "05_openai.html",
+    "href": "05_openai.html",
+    "title": "Scientific Computation at large",
+    "section": "",
+    "text": "# Set your secret API key\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")"
   }
 ]

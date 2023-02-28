@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computation at large - AFdesign</title>
+<title>Scientific Computation at large – openai</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">AFdesign</h1>
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -205,12 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Protein Design</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Protein Design</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_0.html" class="sidebar-item-text sidebar-link">Intro</a>
@@ -223,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_AFdesign.html" class="sidebar-item-text sidebar-link active">AFdesign</a>
+  <a href="./02_AFdesign.html" class="sidebar-item-text sidebar-link">AFdesign</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,143 +323,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#prepare-environment" id="toc-prepare-environment" class="nav-link active" data-scroll-target="#prepare-environment">Prepare environment</a></li>
-  <li><a href="#fixed-backbone-design" id="toc-fixed-backbone-design" class="nav-link" data-scroll-target="#fixed-backbone-design">Fixed backbone design</a></li>
-  <li><a href="#hallucination" id="toc-hallucination" class="nav-link" data-scroll-target="#hallucination">Hallucination</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">AFdesign</h1>
-<p class="subtitle lead">Protein Design using AlphaFold</p>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
-
-<section id="prepare-environment" class="level1">
-<h1>Prepare environment</h1>
-<div class="cell">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>REPO_ADDRESS <span class="op">=</span> <span class="st">"https://github.com/sokrypton/ColabDesign.git"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>REPO_DIR <span class="op">=</span> <span class="st">"/home/ma/git/computation/ColabDesign"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(REPO_DIR):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>git clone {REPO_ADDRESS}</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd {REPO_DIR}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PARAMS_DIR <span class="op">=</span> <span class="st">"/mnt/nas/alphafold/alphafold_params_2022-12-06/"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PARAMS_LOCAL_DIR <span class="op">=</span> <span class="st">"params"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a symbolic link to the params directory</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(PARAMS_LOCAL_DIR):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>ln <span class="op">-</span>s {PARAMS_DIR} {PARAMS_LOCAL_DIR}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your secret API key</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> colabdesign <span class="im">import</span> mk_afdesign_model, clear_mem</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download PDB file from RCSB, given a PDB ID</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download_pdb(pdb_id):</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    pdb_id <span class="op">=</span> pdb_id.lower()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    pdb_filename <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>pdb_id<span class="sc">}</span><span class="ss">.pdb"</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(pdb_filename):</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">!</span>wget https:<span class="op">//</span>files.rcsb.org<span class="op">/</span>download<span class="op">/</span>{pdb_filename}</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pdb_filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>download_pdb(<span class="st">"6LU7"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The losses being optimised in the design process are defined in the <code>model.set_opt</code> function. The following losses are available:</p>
-<ul>
-<li>general losses
-<ul>
-<li><em>pae</em> - minimizes the predicted alignment error</li>
-<li><em>plddt</em> - maximizes the predicted LDDT (local distance difference test)</li>
-<li><em>pae</em> and <em>plddt</em> values are between 0 and 1 (where lower is better for both)</li>
-</ul></li>
-<li>fixbb specific losses
-<ul>
-<li><em>dgram_cce</em> - minimizes the categorical-crossentropy between predicted distogram and one extracted from pdb.</li>
-<li><em>fape</em> - minimize difference between coordinates (frame aligned point error)</li>
-<li>we find <em>dgram_cce</em> loss to be more stable for design (compared to <em>fape</em>)</li>
-</ul></li>
-<li>hallucination specific losses
-<ul>
-<li><em>con</em> - maximize <code>1</code> contacts per position. <code>model.set_opt("con",num=1)</code></li>
-</ul></li>
-<li>binder specific losses
-<ul>
-<li><em>pae</em> - minimize PAE at interface and within binder</li>
-<li><em>con</em> - - maximize <code>2</code> contacts per binder position, within binder. <code>model.set_opt("con",num=2)</code></li>
-<li><em>i_con</em> - maximize <code>1</code> contacts per binder position <code>model.set_opt("i_con",num=1)</code></li>
-</ul></li>
-<li>partial hallucination specific losses
-<ul>
-<li><em>sc_fape</em> - sidechain-specific fape</li>
-</ul></li>
-</ul>
-<p>The pAE (predicted alignment error) measures</p>
-<p>distogram is defined as</p>
-<p>In AlphaFold, the <code>plddt</code> score measures the percentage of aligned residues that are within 8 angstroms of the correct position. The <code>rmsd</code> score measures the root-mean-square deviation of the aligned residues from the correct position. The <code>confidence</code> score is the probability that the model is correct. The <code>confidence</code> score is not used in the AlphaFold ranking, but is included for completeness.</p>
-</section>
-<section id="fixed-backbone-design" class="level1">
-<h1>Fixed backbone design</h1>
-<p>For a given protein backbone, generate/design a new sequence that AlphaFold thinks folds into that conformation.</p>
-<div class="cell" data-executioninfo="{&quot;elapsed&quot;:15250,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1670808431120,&quot;user&quot;:{&quot;displayName&quot;:&quot;Olivier Ma (Dongqiang)&quot;,&quot;userId&quot;:&quot;00588961782949097051&quot;},&quot;user_tz&quot;:-480}" data-outputid="9bc6a0d3-2dfb-4c59-c471-0792bc769c98">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>clear_mem()</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>af_model <span class="op">=</span> mk_afdesign_model(protocol<span class="op">=</span><span class="st">"fixbb"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>af_model.prep_inputs(pdb_filename<span class="op">=</span>download_pdb(<span class="st">"1TEN"</span>), chain<span class="op">=</span><span class="st">"A"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"length"</span>,  af_model._len)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"weights"</span>, af_model.opt[<span class="st">"weights"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>af_model.restart()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>af_model.design_3stage()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>af_model.plot_traj()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The <code>plot_traj</code> function plots the training trajectories.</p>
-<div class="cell" data-executioninfo="{&quot;elapsed&quot;:951,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1670809065971,&quot;user&quot;:{&quot;displayName&quot;:&quot;Olivier Ma (Dongqiang)&quot;,&quot;userId&quot;:&quot;00588961782949097051&quot;},&quot;user_tz&quot;:-480}" data-outputid="bf640afb-2413-48e3-cf00-48e0569a38d8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>af_model.save_pdb(<span class="ss">f"tenascin_</span><span class="sc">{</span>af_model<span class="sc">.</span>protocol<span class="sc">}</span><span class="ss">.pdb"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-executioninfo="{&quot;elapsed&quot;:53895,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1670809146260,&quot;user&quot;:{&quot;displayName&quot;:&quot;Olivier Ma (Dongqiang)&quot;,&quot;userId&quot;:&quot;00588961782949097051&quot;},&quot;user_tz&quot;:-480}" data-outputid="01dea77a-0301-46c1-87c3-2040d8b8bab9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>HTML(af_model.animate())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-executioninfo="{&quot;elapsed&quot;:614,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1670809384889,&quot;user&quot;:{&quot;displayName&quot;:&quot;Olivier Ma (Dongqiang)&quot;,&quot;userId&quot;:&quot;00588961782949097051&quot;},&quot;user_tz&quot;:-480}" data-outputid="d165e6e9-7ce4-4f3b-d554-42b320aa4897">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>af_model.get_seqs()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="hallucination" class="level1">
-<h1>Hallucination</h1>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
