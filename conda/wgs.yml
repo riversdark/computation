@@ -26,6 +26,7 @@ dependencies:
   - bioconda::fastqc
   - bioconda::samtools
   - bioconda::multiqc
+  - bioconda::trimmomatic
   - pip
   - pip:
     - openai

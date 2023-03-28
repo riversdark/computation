@@ -1,15 +1,16 @@
 ---
-title: "Assorted essays"
+title: "Essays on Computational Biology"
 format:
   html:
     code-fold: true
 ---
 
-This website is a collection of tools that I'm using for work. Expected to be updated frequently.
+This website is a collection of tools I'm using for work in computational biology. Expected to be updated frequently.
+Since I'm a trained Bayesian, the presentation of the tools and methods will inevitably has a Bayesian bias.
 
 Click on the links on the left to navigate to the different sections.
 
-# 01 Omics Data Analysis
+# 01 Omics Analysis
 
 Genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc., uncovering the molecular mechanisms by studying their sequence information.
 
@@ -28,7 +29,3 @@ Computer simulations to understand the molecular mechanisms of biological system
 # 05 Machine learning
 
 In depth analysis of key machine learning models and their applications.
-
-# 06 New technologies
-
-New technologies under investigation.
