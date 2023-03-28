@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computation at large - Assorted essays</title>
+<title>Scientific Computation at large - Essays on Computational Biology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Assorted essays</h1>
+      <h1 class="quarto-secondary-nav-title">Essays on Computational Biology</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -126,6 +126,11 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_pyro_cov.html" class="sidebar-item-text sidebar-link">pyro_cov</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_scRNA.html" class="sidebar-item-text sidebar-link">scRNA data analysis with scanpy</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -235,22 +240,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./05_BioGPT.html" class="sidebar-item-text sidebar-link">BioGPT</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_dnn.html" class="sidebar-item-text sidebar-link">Neural network: layers and architectures</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">New Technologies</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_0.html" class="sidebar-item-text sidebar-link">New technologies</a>
+  <a href="./05_openai.html" class="sidebar-item-text sidebar-link">05_openai.html</a>
   </div>
 </li>
       </ul>
@@ -264,12 +264,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#omics-data-analysis" id="toc-omics-data-analysis" class="nav-link active" data-scroll-target="#omics-data-analysis">01 Omics Data Analysis</a></li>
+  <li><a href="#omics-analysis" id="toc-omics-analysis" class="nav-link active" data-scroll-target="#omics-analysis">01 Omics Analysis</a></li>
   <li><a href="#computational-protein-design" id="toc-computational-protein-design" class="nav-link" data-scroll-target="#computational-protein-design">02 Computational protein design</a></li>
   <li><a href="#computational-micromolecule-design" id="toc-computational-micromolecule-design" class="nav-link" data-scroll-target="#computational-micromolecule-design">03 Computational micromolecule design</a></li>
   <li><a href="#molecular-dynamics" id="toc-molecular-dynamics" class="nav-link" data-scroll-target="#molecular-dynamics">04 Molecular dynamics</a></li>
   <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">05 Machine learning</a></li>
-  <li><a href="#new-technologies" id="toc-new-technologies" class="nav-link" data-scroll-target="#new-technologies">06 New technologies</a></li>
   </ul>
 </nav>
     </div>
@@ -278,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Assorted essays</h1>
+<h1 class="title d-none d-lg-block">Essays on Computational Biology</h1>
 </div>
 
 
@@ -292,10 +291,10 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This website is a collection of tools that I’m using for work. Expected to be updated frequently.</p>
+<p>This website is a collection of tools I’m using for work in computational biology. Expected to be updated frequently. Since I’m a trained Bayesian, the presentation of the tools and methods will inevitably has a Bayesian bias.</p>
 <p>Click on the links on the left to navigate to the different sections.</p>
-<section id="omics-data-analysis" class="level1">
-<h1>01 Omics Data Analysis</h1>
+<section id="omics-analysis" class="level1">
+<h1>01 Omics Analysis</h1>
 <p>Genomics, transcriptomics, proteomics, metabolomics, lipidomics, etc., uncovering the molecular mechanisms by studying their sequence information.</p>
 </section>
 <section id="computational-protein-design" class="level1">
@@ -313,10 +312,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="machine-learning" class="level1">
 <h1>05 Machine learning</h1>
 <p>In depth analysis of key machine learning models and their applications.</p>
-</section>
-<section id="new-technologies" class="level1">
-<h1>06 New technologies</h1>
-<p>New technologies under investigation.</p>
 
 
 </section>

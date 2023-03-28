@@ -193,6 +193,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./01_scRNA.html" class="sidebar-item-text sidebar-link">scRNA data analysis with scanpy</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01_varscan.html" class="sidebar-item-text sidebar-link">VarScan</a>
   </div>
 </li>
@@ -298,22 +303,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./05_BioGPT.html" class="sidebar-item-text sidebar-link">BioGPT</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_dnn.html" class="sidebar-item-text sidebar-link">Neural network: layers and architectures</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">New Technologies</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_0.html" class="sidebar-item-text sidebar-link">New technologies</a>
+  <a href="./05_openai.html" class="sidebar-item-text sidebar-link">05_openai.html</a>
   </div>
 </li>
       </ul>
@@ -328,8 +328,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#tools" id="toc-tools" class="nav-link active" data-scroll-target="#tools">Tools</a></li>
-  <li><a href="#reference-genome" id="toc-reference-genome" class="nav-link" data-scroll-target="#reference-genome">Reference genome</a></li>
-  <li><a href="#reads" id="toc-reads" class="nav-link" data-scroll-target="#reads">Reads</a></li>
+  <li><a href="#reference-management" id="toc-reference-management" class="nav-link" data-scroll-target="#reference-management">Reference management</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
+  <li><a href="#preprocessing-of-raw-reads" id="toc-preprocessing-of-raw-reads" class="nav-link" data-scroll-target="#preprocessing-of-raw-reads">Preprocessing of raw reads</a>
+  <ul class="collapse">
   <li><a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality control</a></li>
   <li><a href="#align-reads-to-reference-genome" id="toc-align-reads-to-reference-genome" class="nav-link" data-scroll-target="#align-reads-to-reference-genome">Align reads to reference genome</a>
   <ul class="collapse">
@@ -345,6 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#variant-annotation" id="toc-variant-annotation" class="nav-link" data-scroll-target="#variant-annotation">Variant annotation</a></li>
   <li><a href="#variant-recalibration" id="toc-variant-recalibration" class="nav-link" data-scroll-target="#variant-recalibration">Variant recalibration</a></li>
   <li><a href="#apply-variant-recalibration" id="toc-apply-variant-recalibration" class="nav-link" data-scroll-target="#apply-variant-recalibration">Apply variant recalibration</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -368,11 +371,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<ul class="task-list">
-<li><input type="checkbox" disabled="">clarify the choice of reference genome</li>
-<li><input type="checkbox" disabled="">clarify the choice of known sites</li>
-<li><input type="checkbox" disabled="">modify the code to suit for multiple samples</li>
-</ul>
 <section id="tools" class="level2">
 <h2 class="anchored" data-anchor-id="tools">Tools</h2>
 <p>Tools necessary for WGS variant calling using GATK include:</p>
@@ -383,8 +381,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>FastQC is a quality control tool for high throughput sequence data. It provides a modular set of analyses which you can use to give a quick impression of whether your data has any problems of which you should be aware before doing any further analysis. It produces a simple HTML file with a summary of the results of the analysis, which can be viewed in a web browser.</p>
 <p>Other tools that are useful for WGS variant calling include: - Freebayes, a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) - bcftools, a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF - vcftools, a set of tools written in Perl and C++ for working with VCF files, such as those generated by the 1000 Genomes Project - bedtools, a suite of utilities for genome arithmetic - tabix, a generic indexer for TAB-delimited genome position files - bgzip, a small utility that enables tabix to work with gzip-compressed files</p>
 </section>
-<section id="reference-genome" class="level2">
-<h2 class="anchored" data-anchor-id="reference-genome">Reference genome</h2>
+<section id="reference-management" class="level1">
+<h1>Reference management</h1>
 <p>define the reference genome directory and files</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -428,14 +426,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>ls <span class="op">-</span>halt $REF_DIR</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="reads" class="level2">
-<h2 class="anchored" data-anchor-id="reads">Reads</h2>
+<section id="data-preparation" class="level1">
+<h1>Data preparation</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>READS_DIR <span class="op">=</span> <span class="st">"/mnt/nas/wgs/RDD2206P0001"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>READS_FILE1 <span class="op">=</span> os.path.join(READS_DIR, <span class="st">"RDD2206P0001-WGS-1_R1.fastq.gz"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>READS_FILE2 <span class="op">=</span> os.path.join(READS_DIR, <span class="st">"RDD2206P0001-WGS-1_R2.fastq.gz"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="preprocessing-of-raw-reads" class="level1">
+<h1>Preprocessing of raw reads</h1>
 <section id="quality-control" class="level2">
 <h2 class="anchored" data-anchor-id="quality-control">Quality control</h2>
 <p>This is a quick overview of the quality of the data. We will use FastQC to generate a report for each sample.</p>
@@ -465,35 +465,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the flag statistics</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>samtools flagstat $READS_DIR<span class="op">/</span>RDD2206P0001<span class="op">-</span>WGS<span class="op">-</span><span class="fl">1.</span><span class="er">sam</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The SAM file contains the following flags:</p>
-<ul>
-<li>0x1: template having multiple segments in sequencing</li>
-<li>0x2: each segment properly aligned according to the aligner</li>
-<li>0x4: segment unmapped</li>
-<li>0x8: next segment in the template unmapped</li>
-<li>0x10: SEQ being reverse complemented</li>
-<li>0x20: SEQ of the next segment in the template being reversed</li>
-<li>0x40: the first segment in the template</li>
-<li>0x80: the last segment in the template</li>
-<li>0x100: secondary alignment</li>
-<li>0x200: not passing quality controls</li>
-<li>0x400: PCR or optical duplicate</li>
-<li>0x800: supplementary alignment</li>
-</ul>
-<p>The SAM file contains the following fields:</p>
-<ul>
-<li>QNAME: Query template NAME</li>
-<li>FLAG: bitwise FLAG</li>
-<li>RNAME: Reference sequence NAME</li>
-<li>POS: 1-based leftmost mapping POSition</li>
-<li>MAPQ: MAPping Quality</li>
-<li>CIGAR: CIGAR string</li>
-<li>RNEXT: Ref. name of the mate/next read</li>
-<li>PNEXT: Position of the mate/next read</li>
-<li>TLEN: observed Template LENgth</li>
-<li>SEQ: segment SEQuence</li>
-<li>QUAL: ASCII of Phred-scaled base QUALity+33</li>
-</ul>
 <p>The SAM file needs to be sorted by the read name. This is done to make the file compatible with <code>MarkDuplicatesSpark</code> and <code>HaplotypeCallerSpark</code>.</p>
 </section>
 </section>
@@ -574,6 +545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -193,6 +193,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./01_scRNA.html" class="sidebar-item-text sidebar-link">scRNA data analysis with scanpy</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01_varscan.html" class="sidebar-item-text sidebar-link">VarScan</a>
   </div>
 </li>
@@ -285,12 +290,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Machine Learning</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Machine Learning</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_0.html" class="sidebar-item-text sidebar-link">Machine learning</a>
@@ -298,22 +303,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./05_BioGPT.html" class="sidebar-item-text sidebar-link">BioGPT</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_dnn.html" class="sidebar-item-text sidebar-link">Neural network: layers and architectures</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">New Technologies</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_0.html" class="sidebar-item-text sidebar-link">New technologies</a>
+  <a href="./05_openai.html" class="sidebar-item-text sidebar-link active">05_openai.html</a>
   </div>
 </li>
       </ul>
@@ -330,15 +330,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="1">
+<p>Paper QA</p>
+<p>This is a minimal package for doing question and answering from PDFs or text files (which can be raw HTML), using the paper-qa library and openai’s GPT-3 API.</p>
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your secret API key</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> <span class="st">"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"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>openai.api_key</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>'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'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PAPER_DIR <span class="op">=</span> <span class="st">"/mnt/nas/wgs/paper_qa/als"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># save the paper file paths in a list</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>paper_paths <span class="op">=</span> [os.path.join(PAPER_DIR, p) <span class="cf">for</span> p <span class="kw">in</span> os.listdir(PAPER_DIR)]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>paper_paths</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>['/mnt/nas/wgs/paper_qa/als/Xu et al_2021_Probabilistic harmonization and annotation of single‐cell transcriptomics data.pdf',
+ '/mnt/nas/wgs/paper_qa/als/van der Spek et al_2019_The project MinE databrowser.pdf',
+ '/mnt/nas/wgs/paper_qa/als/Masrori_Van Damme_2020_Amyotrophic lateral sclerosis.pdf',
+ '/mnt/nas/wgs/paper_qa/als/Khalid et al_2017_Immune Modulation in the Treatment of Amyotrophic Lateral Sclerosis.pdf',
+ '/mnt/nas/wgs/paper_qa/als/van Rheenen et al_2016_Genome-wide association analyses identify new risk variants and the genetic.pdf']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>echo $PATH</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/ma/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/bin/remote-cli:/home/ma/miniconda3/envs/torch/bin:/home/ma/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/mnt/disk1/backup/home/acemap/Downloads/bwa:/media/acemap/data1/backup/home/acemap/Downloads/jdk18/bin:/git_repos/gatk</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># citations corresponding to the papers</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>citations <span class="op">=</span> [</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">"Khalid, Syed I., Leonel Ampie, Ryan Kelly, Shafeeq S. Ladha, and Christopher Dardis. “Immune Modulation in the Treatment of Amyotrophic Lateral Sclerosis: A Review of Clinical Trials.” Frontiers in Neurology 8 (2017). https://www.frontiersin.org/articles/10.3389/fneur.2017.00486."</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">"Masrori, P., and P. Van Damme. “Amyotrophic Lateral Sclerosis: A Clinical Review.” European Journal of Neurology 27, no. 10 (October 2020): 1918–29. https://doi.org/10.1111/ene.14393."</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">"Rheenen, Wouter van, Aleksey Shatunov, Annelot M. Dekker, Russell L. McLaughlin, Frank P. Diekstra, Sara L. Pulit, Rick A. A. van der Spek, et al. “Genome-Wide Association Analyses Identify New Risk Variants and the Genetic Architecture of Amyotrophic Lateral Sclerosis.” Nature Genetics 48, no. 9 (September 2016): 1043–48. https://doi.org/10.1038/ng.3622."</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">"Spek, Rick A.A. van der, Wouter van Rheenen, Sara L. Pulit, Kevin P. Kenna, Leonard H. van den Berg, and Jan H. Veldink. “The Project MinE Databrowser: Bringing Large-Scale Whole-Genome Sequencing in ALS to Researchers and the Public.” Amyotrophic Lateral Sclerosis and Frontotemporal Degeneration 20, no. 5–6 (July 3, 2019): 432–40. https://doi.org/10.1080/21678421.2019.1606244."</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">"Xu, Chenling, Romain Lopez, Edouard Mehlman, Jeffrey Regier, Michael I Jordan, and Nir Yosef. “Probabilistic Harmonization and Annotation of Single‐cell Transcriptomics Data with Deep Generative Models.” Molecular Systems Biology 17, no. 1 (January 2021). https://doi.org/10.15252/msb.20209620."</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>blackadad<span class="op">/</span>paper<span class="op">-</span>scraper.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting git+https://github.com/blackadad/paper-scraper.git
+  Cloning https://github.com/blackadad/paper-scraper.git to /tmp/pip-req-build-3rf8747l
+  Running command git clone --filter=blob:none --quiet https://github.com/blackadad/paper-scraper.git /tmp/pip-req-build-3rf8747l
+  fatal: unable to access 'https://github.com/blackadad/paper-scraper.git/': Failed to connect to github.com port 443: Connection timed out
+  warning: Clone succeeded, but checkout failed.
+  You can inspect what was checked out with 'git status'
+  and retry with 'git restore --source=HEAD :/'
+
+  error: subprocess-exited-with-error
+  
+  × git clone --filter=blob:none --quiet https://github.com/blackadad/paper-scraper.git /tmp/pip-req-build-3rf8747l did not run successfully.
+  │ exit code: 128
+  ╰─&gt; See above for output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× git clone --filter=blob:none --quiet https://github.com/blackadad/paper-scraper.git /tmp/pip-req-build-3rf8747l did not run successfully.
+│ exit code: 128
+╰─&gt; See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> paperqa <span class="im">import</span> Docs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>papers <span class="op">=</span> paper_paths</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the list of papers</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>docs <span class="op">=</span> Docs()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValidationError: 1 validation error for OpenAI
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass  `openai_api_key` as a named parameter. (type=value_error)</code></pre>
+</div>
 </div>
 
 

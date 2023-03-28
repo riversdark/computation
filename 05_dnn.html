@@ -194,6 +194,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./01_scRNA.html" class="sidebar-item-text sidebar-link">scRNA data analysis with scanpy</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01_varscan.html" class="sidebar-item-text sidebar-link">VarScan</a>
   </div>
 </li>
@@ -299,22 +304,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./05_BioGPT.html" class="sidebar-item-text sidebar-link">BioGPT</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./05_dnn.html" class="sidebar-item-text sidebar-link active">Neural network: layers and architectures</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">New Technologies</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_0.html" class="sidebar-item-text sidebar-link">New technologies</a>
+  <a href="./05_openai.html" class="sidebar-item-text sidebar-link">05_openai.html</a>
   </div>
 </li>
       </ul>
@@ -334,10 +334,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#non-linear-activations" id="toc-non-linear-activations" class="nav-link" data-scroll-target="#non-linear-activations">Non-linear activations</a>
   <ul class="collapse">
   <li><a href="#gelu" id="toc-gelu" class="nav-link" data-scroll-target="#gelu">GELU</a></li>
+  <li><a href="#softmax" id="toc-softmax" class="nav-link" data-scroll-target="#softmax">Softmax</a></li>
   </ul></li>
   <li><a href="#conv-layers" id="toc-conv-layers" class="nav-link" data-scroll-target="#conv-layers">Conv layers</a></li>
   <li><a href="#resiudal-blocks" id="toc-resiudal-blocks" class="nav-link" data-scroll-target="#resiudal-blocks">resiudal blocks</a></li>
-  <li><a href="#normalization-layers" id="toc-normalization-layers" class="nav-link" data-scroll-target="#normalization-layers">Normalization layers</a></li>
+  <li><a href="#normalization-layers" id="toc-normalization-layers" class="nav-link" data-scroll-target="#normalization-layers">Normalization layers</a>
+  <ul class="collapse">
+  <li><a href="#layernorm" id="toc-layernorm" class="nav-link" data-scroll-target="#layernorm">LayerNorm</a></li>
+  </ul></li>
   <li><a href="#dropout" id="toc-dropout" class="nav-link" data-scroll-target="#dropout">Dropout</a></li>
   <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention</a></li>
   <li><a href="#recurrent-layers" id="toc-recurrent-layers" class="nav-link" data-scroll-target="#recurrent-layers">Recurrent layers</a></li>
@@ -378,8 +382,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this notebook we’ll introduce the basic layers and architectures used in deep neural networks.</p>
 <p>The code will be written in PyTorch, but the concepts are applicable to any deep learning framework.</p>
 <div class="cell" data-execution_count="2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pytorch and related libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
@@ -388,7 +390,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="layers" class="level1">
 <h1>Layers</h1>
@@ -399,16 +400,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>where <span class="math inline">\(x\)</span> is the input, <span class="math inline">\(W\)</span> is the weight matrix, <span class="math inline">\(b\)</span> is the bias vector.</p>
 <p>The linear layer is implemented in PyTorch as <code>F.linear</code>.</p>
 <div class="cell" data-execution_count="5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a linear layer in NumPy</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linear_layer(x, w, b):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">@</span> w <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-execution_count="11">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>in_features <span class="op">=</span> <span class="dv">28</span> <span class="op">*</span> <span class="dv">28</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>out_features <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -419,7 +415,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># compare the output of the NumPy implementation with the PyTorch implementation</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> torch.allclose(linear_layer(x, w, b), F.linear(x, w.T, b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>note that in PyTorch the weight matrix has the shape (out_features, in_features) so we have to transpose it.</p>
 </section>
@@ -435,26 +430,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The GELU activation function has a similar shape to the widely used ReLU activation function, but with some key differences. One of the main advantages of GELU over ReLU is that it has a non-zero mean, which can help to reduce the vanishing gradient problem. Additionally, GELU has been shown to outperform other activation functions in certain scenarios, such as on language modeling tasks.</p>
 <p>However, it should be noted that GELU is a relatively new activation function and may not always be the best choice for every application. As with any neural network component, it is important to experiment with different activation functions to find the one that works best for your specific problem.</p>
 <div class="cell" data-execution_count="14">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a GELU layer in NumPy</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gelu_layer(x):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">0.5</span> <span class="op">*</span> x <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> np.tanh(np.sqrt(<span class="dv">2</span> <span class="op">/</span> np.pi) <span class="op">*</span> (x <span class="op">+</span> <span class="fl">0.044715</span> <span class="op">*</span> np.power(x, <span class="dv">3</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-execution_count="27">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test the GELU layer</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.randn(<span class="dv">1</span>, <span class="dv">2</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gelu_layer(x), F.gelu(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor([[-0.1595, -0.1053]]) tensor([[-0.1594, -0.1053]])</code></pre>
 </div>
 </div>
 <p>The two implementations do not always give the same results because the <code>torch.erf</code> function is not as precise as the <code>scipy.special.erf</code> function.</p>
+</section>
+<section id="softmax" class="level3">
+<h3 class="anchored" data-anchor-id="softmax">Softmax</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> softmax(x):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    exp_x <span class="op">=</span> np.exp(x <span class="op">-</span> np.<span class="bu">max</span>(x, axis<span class="op">=-</span><span class="dv">1</span>, keepdims<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> exp_x <span class="op">/</span> np.<span class="bu">sum</span>(exp_x, axis<span class="op">=-</span><span class="dv">1</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="conv-layers" class="level2">
@@ -465,12 +462,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="normalization-layers" class="level2">
 <h2 class="anchored" data-anchor-id="normalization-layers">Normalization layers</h2>
+<section id="layernorm" class="level3">
+<h3 class="anchored" data-anchor-id="layernorm">LayerNorm</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> layer_norm(x, g, b, eps: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1e-5</span>):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> np.mean(x, axis<span class="op">=-</span><span class="dv">1</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    variance <span class="op">=</span> np.var(x, axis<span class="op">=-</span><span class="dv">1</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x <span class="op">-</span> mean) <span class="op">/</span> np.sqrt(variance <span class="op">+</span> eps)  <span class="co"># normalize x to have mean=0 and var=1 over last axis</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> g <span class="op">*</span> x <span class="op">+</span> b  <span class="co"># scale and offset with gamma/beta params</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 <section id="dropout" class="level2">
 <h2 class="anchored" data-anchor-id="dropout">Dropout</h2>
 </section>
 <section id="attention" class="level2">
 <h2 class="anchored" data-anchor-id="attention">Attention</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> attention(q, k, v, mask):  <span class="co"># [n_q, d_k], [n_k, d_k], [n_k, d_v], [n_q, n_k] -&gt; [n_q, d_v]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> softmax(q <span class="op">@</span> k.T <span class="op">/</span> np.sqrt(q.shape[<span class="op">-</span><span class="dv">1</span>]) <span class="op">+</span> mask) <span class="op">@</span> v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mha(x, c_attn, c_proj, n_head):  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># qkv projection</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> linear(x, <span class="op">**</span>c_attn)  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, 3*n_embd]</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># split into qkv</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    qkv <span class="op">=</span> np.split(x, <span class="dv">3</span>, axis<span class="op">=-</span><span class="dv">1</span>)  <span class="co"># [n_seq, 3*n_embd] -&gt; [3, n_seq, n_embd]</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># split into heads</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    qkv_heads <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: np.split(x, n_head, axis<span class="op">=-</span><span class="dv">1</span>), qkv))  <span class="co"># [3, n_seq, n_embd] -&gt; [3, n_head, n_seq, n_embd/n_head]</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># causal mask to hide future inputs from being attended to</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    causal_mask <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> np.tri(x.shape[<span class="dv">0</span>], dtype<span class="op">=</span>x.dtype)) <span class="op">*</span> <span class="op">-</span><span class="fl">1e10</span>  <span class="co"># [n_seq, n_seq]</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># perform attention over each head</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    out_heads <span class="op">=</span> [attention(q, k, v, causal_mask) <span class="cf">for</span> q, k, v <span class="kw">in</span> <span class="bu">zip</span>(<span class="op">*</span>qkv_heads)]  <span class="co"># [3, n_head, n_seq, n_embd/n_head] -&gt; [n_head, n_seq, n_embd/n_head]</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># merge heads</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.hstack(out_heads)  <span class="co"># [n_head, n_seq, n_embd/n_head] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># out projection</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> linear(x, <span class="op">**</span>c_proj)  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="recurrent-layers" class="level2">
 <h2 class="anchored" data-anchor-id="recurrent-layers">Recurrent layers</h2>
@@ -486,6 +522,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Architectures</h1>
 <section id="feedforward-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="feedforward-neural-networks">Feedforward Neural Networks</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ffn(x, c_fc, c_proj):  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># project up</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> gelu(linear(x, <span class="op">**</span>c_fc))  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, 4*n_embd]</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># project back down</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> linear(a, <span class="op">**</span>c_proj)  <span class="co"># [n_seq, 4*n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="convolutional-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="convolutional-neural-networks">Convolutional Neural Networks</h2>
@@ -498,9 +544,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="transformers" class="level2">
 <h2 class="anchored" data-anchor-id="transformers">Transformers</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transformer_block(x, mlp, attn, ln_1, ln_2, n_head):  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># multi-head causal self attention</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> mha(layer_norm(x, <span class="op">**</span>ln_1), <span class="op">**</span>attn, n_head<span class="op">=</span>n_head)  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># position-wise feed forward network</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> ffn(layer_norm(x, <span class="op">**</span>ln_2), <span class="op">**</span>mlp)  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="graph-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="graph-neural-networks">Graph Neural Networks</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gpt2(inputs, wte, wpe, blocks, ln_f, n_head):  <span class="co"># [n_seq] -&gt; [n_seq, n_vocab]</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># token + positional embeddings</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> wte[inputs] <span class="op">+</span> wpe[<span class="bu">range</span>(<span class="bu">len</span>(inputs))]  <span class="co"># [n_seq] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># forward pass through n_layer transformer blocks</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> block <span class="kw">in</span> blocks:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> transformer_block(x, <span class="op">**</span>block, n_head<span class="op">=</span>n_head)  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># projection to vocab</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> layer_norm(x, <span class="op">**</span>ln_f)  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_embd]</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">@</span> wte.T  <span class="co"># [n_seq, n_embd] -&gt; [n_seq, n_vocab]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
